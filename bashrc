@@ -1,7 +1,10 @@
-if [ -z "$TMUX" ]; then
-    export PATH=.:~/bin:/usr/loca/sbin:$PATH
-    tmx
-fi
+# update PATH
+PATH="/usr/local/sbin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/sbin" } split/:/, $ENV{PATH};')"
+PATH="/usr/local/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/bin" } split/:/, $ENV{PATH};')"
+PATH="~/bin:$(perl -e 'print join ":", grep { $_ ne "~/bin" } split/:/, $ENV{PATH};')"
+PATH=".:$(perl -e 'print join ":", grep { $_ ne "." } split/:/, $ENV{PATH};')"
+
+[ -z "$TMUX" ] && tmx
 
 export SVN_EDITOR=vim
 export EDITOR=vim
@@ -17,6 +20,7 @@ alias dh='df -H'
 alias ptt="ssh bbsu@ptt.cc"
 alias p2="ssh bbsu@ptt2.cc"
 alias gs="git status"
+alias v="vim"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
 
