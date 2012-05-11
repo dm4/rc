@@ -133,5 +133,5 @@ fi
 # $ 
 #PROMPT_COMMAND=prompt_command
 #export PS1="\n\[\e[33m\]★  \[\e[36m\]\A \[\e[1;34m\][\${newPWD}] \[\e[0;35m\]\$(git_branch)\[\e[1;30m\]\${fill}\n\[\e[0m\]$ "
-# [~] ➟ 
-export PS1="\[\e[0;35m\]\$(git_branch)\[\e[1;30m\][\w] \[\e[0;31m\]➟ \[\e[m\]"
+# [~] ➟  
+export PS1="\[\e[0;35m\]\$(git_branch)\[\e[1;30m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
