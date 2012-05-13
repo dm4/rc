@@ -1,7 +1,7 @@
 # update PATH
 export PATH="/usr/local/sbin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/sbin" } split/:/, $ENV{PATH};')"
 export PATH="/usr/local/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/bin" } split/:/, $ENV{PATH};')"
-export PATH="~/bin:$(perl -e 'print join ":", grep { $_ ne "~/bin" } split/:/, $ENV{PATH};')"
+export PATH=$HOME/bin:"$(perl -e 'print join ":", grep { $_ ne "$ENV{HOME}/bin" && $_ ne "~/bin" } split/:/, $ENV{PATH};')"
 export PATH=".:$(perl -e 'print join ":", grep { $_ ne "." } split/:/, $ENV{PATH};')"
 
 [ -z "$TMUX" ] && tmx
