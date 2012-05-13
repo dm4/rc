@@ -12,7 +12,8 @@ export EDITOR=vim
 # useful alias
 alias rm="rm -i"
 alias mv="mv -i"
-alias ll="ls -lF"
+alias ls="ls -F --color=auto"
+alias ll="ls -l"
 alias la="ll -A"
 alias lh="ll -h"
 alias cp="cp -i"
