@@ -77,7 +77,7 @@ if [ `uname` = "Darwin" ]; then
     alias show="chflags nohidden ~/Desktop/*"
 
     # to solve OSX Lion update_terminal_cwd bug
-    . /etc/bashrc
+#    . /etc/bashrc
 
     # open in finder
     o () {
