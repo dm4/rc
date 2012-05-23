@@ -31,7 +31,7 @@ alias eb="vim ~/.bashrc"
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
-# fucntions
+# functions
 csie () {
     if [ -n "$1" ]; then
         ssh r00922006@linux"$1".csie.org
