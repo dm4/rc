@@ -14,18 +14,19 @@ export EDITOR=vim
 
 # useful alias
 alias rm="rm -i"
+alias cp="cp -i"
 alias mv="mv -i"
 alias ls="ls -F --color=auto"
-alias ll="ls -l"
+alias ll="ls -lh"
 alias la="ll -A"
-alias lh="ll -h"
-alias cp="cp -i"
 alias dh='df -H'
 alias ptt="ssh bbsu@ptt.cc"
 alias p2="ssh bbsu@ptt2.cc"
 alias gs="git status"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
+alias pssh='ssh -o "ProxyCommand /usr/bin/nc -x sq2.cs.nctu.edu.tw:65000 %h %p"'
+alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 
 # rvm
 [ -s ~/.rvm/scripts/rvm ] && . ~/.rvm/scripts/rvm
@@ -86,10 +87,14 @@ function prompt_command {
 if [ `uname` = "Darwin" ]; then
     # alias
     alias ls="ls -GF"
-    alias gitx="open . -a gitx"
     alias app="open -a"
+    alias mou="open -a mou"
+    alias gitx="open -a gitx ."
+    alias mp="open -a Marked"
     alias hide="chflags hidden ~/Desktop/*"
     alias show="chflags nohidden ~/Desktop/*"
+    alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
+    alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
     # to solve OSX Lion update_terminal_cwd bug
 #    . /etc/bashrc
