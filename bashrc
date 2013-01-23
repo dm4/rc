@@ -83,6 +83,11 @@ function prompt_command {
     fi
 }
 
+# for powerline-bash
+function _update_ps1() {
+   export PS1="$(~/work/powerline-bash/powerline-bash.py $?)"
+}
+
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
     # alias
@@ -155,3 +160,6 @@ fi
 #export PS1="\n\[\e[33m\]★  \[\e[36m\]\A \[\e[1;34m\][\${newPWD}] \[\e[0;35m\]\$(git_branch)\[\e[1;30m\]\${fill}\n\[\e[0m\]$ "
 # [~] ➟  
 export PS1="\[\e[0;35m\]\$(git_branch)\[\e[1;30m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
+
+# prompt
+#export PROMPT_COMMAND="_update_ps1"
