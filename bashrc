@@ -101,6 +101,10 @@ if [ `uname` = "Darwin" ]; then
     alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
     alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
+    # ENV variables
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    export ANDROID_HOME=/usr/local/Cellar/android-sdk/r20.0.1
+
     # to solve OSX Lion update_terminal_cwd bug
 #    . /etc/bashrc
 
