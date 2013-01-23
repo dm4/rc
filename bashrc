@@ -21,7 +21,6 @@ alias dh='df -H'
 alias ptt="ssh bbsu@ptt.cc"
 alias p2="ssh bbsu@ptt2.cc"
 alias gs="git status"
-alias v="vim"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
 
@@ -32,6 +31,18 @@ alias eb="vim ~/.bashrc"
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
 # functions
+v () {
+    if [ -n "$*" ]; then
+        vim $*
+    else
+        if [ -f Session.vim ]; then
+            vim -S
+        else
+            vim
+        fi
+    fi
+}
+
 csie () {
     if [ -n "$1" ]; then
         ssh r00922006@linux"$1".csie.org
