@@ -16,7 +16,7 @@ export EDITOR=vim
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias ls="ls -F --color=auto"
+alias ls="ls -HF --color=auto"
 alias ll="ls -lh"
 alias la="ll -A"
 alias dh='df -H'
@@ -91,7 +91,7 @@ function _update_ps1() {
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
     # alias
-    alias ls="ls -GF"
+    alias ls="ls -HGF"
     alias app="open -a"
     alias mou="open -a mou"
     alias gitx="open -a gitx ."
