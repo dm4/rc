@@ -91,7 +91,7 @@ function _seperated_prompt {
 
 # for powerline-bash
 function _powerline_prompt {
-   export PS1="$(~/work/powerline-bash/powerline-bash.py $?)"
+    export PS1="$(~/.dotfiles/powerline-shell.py $?)"
 }
 
 # switch prompt
@@ -100,6 +100,10 @@ function pmt {
     if [ $_prompt_setting = 0 ]; then
         export PROMPT_COMMAND="_arrow_prompt"
     elif [ $_prompt_setting = 1 ]; then
+        if [ ! -f ~/.dotfiles/powerline-shell.py ]; then
+            curl -s -o ~/.dotfiles/powerline-shell.py https://raw.github.com/milkbikis/powerline-shell/master/powerline-shell.py
+            chmod +x ~/.dotfiles/powerline-shell.py
+        fi
         export PROMPT_COMMAND="_powerline_prompt"
     elif [ $_prompt_setting = 2 ]; then
         export PROMPT_COMMAND="_seperated_prompt"
