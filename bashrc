@@ -83,7 +83,7 @@ function _arrow_prompt {
 function _seperated_prompt {
     newPWD=`echo -n $PWD | perl -p -e "s{$HOME}{~}"`
     local temp="11:11 [${newPWD}] $(git_branch) "
-    let fillsize="${COLUMNS}-${#temp}"
+    local fillsize=$((${COLUMNS}-${#temp}))
     fill=`perl -e "print '-'x$fillsize if $fillsize > 0;"`
     # ★ ❤
     export PS1="\n\[\e[0;33m\]\A \[\e[0;33m\][\${newPWD}] \[\e[0;35m\]\$(git_branch)\[\e[1;30m\]\${fill}\n\[\e[0m\]$ "
