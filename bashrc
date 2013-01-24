@@ -35,7 +35,7 @@ alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
 # functions
-v () {
+function v {
     if [ -n "$*" ]; then
         vim $*
     else
@@ -47,7 +47,7 @@ v () {
     fi
 }
 
-csie () {
+function csie {
     if [ -n "$1" ]; then
         ssh r00922006@linux"$1".csie.org
     else
@@ -55,7 +55,7 @@ csie () {
     fi
 }
 
-ip () {
+function ip {
     if [ -z "$1" ]; then
         if [ `uname` = 'Darwin' ]; then
             local interface='en1'
@@ -109,7 +109,7 @@ if [ `uname` = "Darwin" ]; then
 #    . /etc/bashrc
 
     # open in finder
-    o () {
+    function o {
         if [ -n "$*" ]; then
             open "$*"
         else
@@ -118,7 +118,7 @@ if [ `uname` = "Darwin" ]; then
     }
 
     # macvim
-    svim () {
+    function svim {
         if [ -n "$*" ]; then
             if [ "$(mvim --serverlist)" = 'VIM-SERVER' ]; then
                 mvim --servername VIM-SERVER --remote-tab $*
