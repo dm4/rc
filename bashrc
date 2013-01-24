@@ -73,20 +73,42 @@ function git_branch {
     echo "("${ref#refs/heads/}") ";
 }
 
-function prompt_command {
+# [~] ➟
+function _arrow_prompt {
+    export PS1="\[\e[0;35m\]\$(git_branch)\[\e[1;30m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
+}
+
+# ★  15:36 [~] ---------
+# $
+function _seperated_prompt {
     newPWD=`echo -n $PWD | perl -p -e "s{$HOME}{~}"`
-    local temp="❤ 11:11 [${newPWD}] $(git_branch) "
+    local temp="11:11 [${newPWD}] $(git_branch) "
     let fillsize="${COLUMNS}-${#temp}"
-    if [ "$fillsize" -gt "0" ]; then
-        fill=`perl -e 'print "-"x200;'`
-        fill="${fill:0:${fillsize}}"
-    fi
+    fill=`perl -e "print '-'x$fillsize if $fillsize > 0;"`
+    # ★ ❤
+    export PS1="\n\[\e[0;33m\]\A \[\e[0;33m\][\${newPWD}] \[\e[0;35m\]\$(git_branch)\[\e[1;30m\]\${fill}\n\[\e[0m\]$ "
 }
 
 # for powerline-bash
-function _update_ps1() {
+function _powerline_prompt {
    export PS1="$(~/work/powerline-bash/powerline-bash.py $?)"
 }
+
+# switch prompt
+function pmt {
+    export _prompt_setting=`perl -e "print (($_prompt_setting+1)%3)"`
+    if [ $_prompt_setting = 0 ]; then
+        export PROMPT_COMMAND="_arrow_prompt"
+    elif [ $_prompt_setting = 1 ]; then
+        export PROMPT_COMMAND="_powerline_prompt"
+    elif [ $_prompt_setting = 2 ]; then
+        export PROMPT_COMMAND="_seperated_prompt"
+    fi
+}
+
+# prompt setting
+export _prompt_setting=0
+export PROMPT_COMMAND="_arrow_prompt"
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
@@ -156,16 +178,3 @@ if [ $TERM = "xterm-256color" ]; then
     export LESS_TERMCAP_ue=$'\E[0m' # end underline
     export LESS_TERMCAP_uz=$'\E[0m' # just for export looking by dm4
 fi
-
-# prompt
-# ★  15:36 [~] ---------
-# $
-#PROMPT_COMMAND=prompt_command
-#export PS1="\n\[\e[33m\]★  \[\e[36m\]\A \[\e[1;34m\][\${newPWD}] \[\e[0;35m\]\$(git_branch)\[\e[1;30m\]\${fill}\n\[\e[0m\]$ "
-
-# prompt
-# [~] ➟
-export PS1="\[\e[0;35m\]\$(git_branch)\[\e[1;30m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
-
-# prompt
-#export PROMPT_COMMAND="_update_ps1"
