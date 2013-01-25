@@ -25,7 +25,6 @@ alias p2="ssh bbsu@ptt2.cc"
 alias gs="git status"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
-alias pssh='ssh -o "ProxyCommand /usr/bin/nc -x sq2.cs.nctu.edu.tw:65000 %h %p"'
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 
 # rvm
