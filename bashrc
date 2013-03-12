@@ -7,7 +7,7 @@ export PATH="$HOME/.rvm/bin:$(perl -e 'print join ":", grep { $_ ne "$PATH:$HOME
 export PATH="$HOME/bin:$(perl -e 'print join ":", grep { $_ ne "$ENV{HOME}/bin" && $_ ne "~/bin" } split/:/, $ENV{PATH};')"
 export PATH=".:$(perl -e 'print join ":", grep { $_ ne "." } split/:/, $ENV{PATH};')"
 
-[ -z "$TMUX" ] && tmx
+[ -t 1 ] && [ -z "$TMUX" ] && tmx
 
 export SVN_EDITOR=vim
 export EDITOR=vim
