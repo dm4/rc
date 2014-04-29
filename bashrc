@@ -16,6 +16,10 @@ export PATH=.:$HOME/bin:$PATH
 export SVN_EDITOR=vim
 export EDITOR=vim
 
+# History
+export HISTTIMEFORMAT='%F %T '
+export HISTCONTROL=ignoreboth
+
 # Aliases
 alias rm="rm -i"
 alias cp="cp -i"
