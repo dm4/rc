@@ -1,13 +1,16 @@
 # update PATH
-export PATH="/usr/local/share/npm/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/share/npm/bin" } split/:/, $ENV{PATH};')"
-export PATH="/usr/local/mysql/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/mysql/bin" } split/:/, $ENV{PATH};')"
-export PATH="/usr/local/sbin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/sbin" } split/:/, $ENV{PATH};')"
-export PATH="/usr/local/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/bin" } split/:/, $ENV{PATH};')"
-export PATH="$HOME/.rvm/bin:$(perl -e 'print join ":", grep { $_ ne "$PATH:$HOME/.rvm/bin" } split/:/, $ENV{PATH};')"
-export PATH="$HOME/bin:$(perl -e 'print join ":", grep { $_ ne "$ENV{HOME}/bin" && $_ ne "~/bin" } split/:/, $ENV{PATH};')"
-export PATH=".:$(perl -e 'print join ":", grep { $_ ne "." } split/:/, $ENV{PATH};')"
+#export PATH="/usr/local/share/npm/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/share/npm/bin" } split/:/, $ENV{PATH};')"
+#export PATH="/usr/local/mysql/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/mysql/bin" } split/:/, $ENV{PATH};')"
+#export PATH="/usr/local/sbin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/sbin" } split/:/, $ENV{PATH};')"
+#export PATH="/usr/local/bin:$(perl -e 'print join ":", grep { $_ ne "/usr/local/bin" } split/:/, $ENV{PATH};')"
+#export PATH="$HOME/.rvm/bin:$(perl -e 'print join ":", grep { $_ ne "$PATH:$HOME/.rvm/bin" } split/:/, $ENV{PATH};')"
+#export PATH="$HOME/bin:$(perl -e 'print join ":", grep { $_ ne "$ENV{HOME}/bin" && $_ ne "~/bin" } split/:/, $ENV{PATH};')"
+#export PATH=".:$(perl -e 'print join ":", grep { $_ ne "." } split/:/, $ENV{PATH};')"
 
-[ -t 1 ] && [ -z "$TMUX" ] && tmx
+[ -t 1 ] && [ -z "$TMUX" ] && bin/tmx
+
+# Path
+export PATH=.:$HOME/bin:$PATH
 
 export SVN_EDITOR=vim
 export EDITOR=vim
