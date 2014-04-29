@@ -12,10 +12,11 @@
 # Path
 export PATH=.:$HOME/bin:$PATH
 
+# Editor
 export SVN_EDITOR=vim
 export EDITOR=vim
 
-# useful alias
+# Aliases
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
@@ -36,7 +37,7 @@ alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
-# functions
+# Functions
 function v {
     if [ -n "$*" ]; then
         vim $*
