@@ -44,6 +44,12 @@ alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
 
 # Functions
+
+# mkdir & cd
+function mkcd { mkdir -p "$@" && cd "$@"; }
+
+function len { echo ${#1}; }
+
 function v {
     if [ -n "$*" ]; then
         vim $*
