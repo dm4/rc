@@ -62,14 +62,6 @@ function v {
     fi
 }
 
-function csie {
-    if [ -n "$1" ]; then
-        ssh r00922006@linux"$1".csie.org
-    else
-        ssh r00922006@linux15.csie.org
-    fi
-}
-
 function ip {
     if [ -z "$1" ]; then
         if [ `uname` = 'Darwin' ]; then
