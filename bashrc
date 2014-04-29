@@ -40,6 +40,9 @@ alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
+# nvm
+[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
+
 # Functions
 function v {
     if [ -n "$*" ]; then
