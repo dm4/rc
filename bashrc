@@ -169,6 +169,9 @@ if [ `uname` = "Darwin" ]; then
     # git completion
     [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ] && . `brew --prefix`/etc/bash_completion.d/git-completion.bash
 
+    # tmux completion
+    [ -f `brew --prefix`/etc/bash_completion.d/tmux ] && . `brew --prefix`/etc/bash_completion.d/tmux
+
     # autojump
     [ -f `brew --prefix`/etc/autojump ] && . `brew --prefix`/etc/autojump
 
