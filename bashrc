@@ -38,14 +38,15 @@ alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 
-# rvm
-[ -s ~/.rvm/scripts/rvm ] && . ~/.rvm/scripts/rvm
 
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
 # nvm
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
+
+# rvm (rvm path should be at first place)
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Functions
 
