@@ -4,6 +4,8 @@
 [color]
     ui = true
 [alias]
+    a  = add
+    b  = branch -a
     co = checkout
     ci = commit
     st = status
