@@ -10,7 +10,7 @@
 [ -t 1 ] && [ -z "$TMUX" ] && bin/tmx
 
 # Path
-export PATH=.:$HOME/bin:$PATH
+export PATH=".:$HOME/bin/:$PATH"
 
 # Editor
 export SVN_EDITOR=vim
