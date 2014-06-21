@@ -73,7 +73,7 @@ function v {
 function ip {
     if [ -z "$1" ]; then
         if [ `uname` = 'Darwin' ]; then
-            local interface='en1'
+            local interface='en0'
         else
             local interface='eth0'
         fi
