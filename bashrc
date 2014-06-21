@@ -141,6 +141,7 @@ if [ `uname` = "Darwin" ]; then
     alias show="chflags nohidden ~/Desktop/*"
     alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
     alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+    alias md="open -a Marked"
 
     # ENV variables
     export JAVA_HOME=$(/usr/libexec/java_home)
