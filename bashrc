@@ -39,7 +39,7 @@ alias gcm="git commit -m"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
-
+alias svndi="svn di | colordiff"
 
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
