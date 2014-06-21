@@ -185,7 +185,7 @@ if [ `uname` = "Darwin" ]; then
     [ -f `brew --prefix`/etc/bash_completion.d/tmux ] && . `brew --prefix`/etc/bash_completion.d/tmux
 
     # autojump
-    [ -f `brew --prefix`/etc/autojump ] && . `brew --prefix`/etc/autojump
+    [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
 
     # grc
     [ -f `brew --prefix grc`/etc/grc.bashrc ] && . `brew --prefix grc`/etc/grc.bashrc
