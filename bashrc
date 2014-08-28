@@ -24,7 +24,7 @@ export HISTCONTROL=ignoreboth
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias ls="ls -HF --color=auto"
+alias ls="ls -F --color=auto"
 alias ll="ls -lh"
 alias la="ll -A"
 alias grep="grep --color=auto"
