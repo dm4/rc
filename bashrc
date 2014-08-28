@@ -86,6 +86,15 @@ function ip {
     ifconfig "$interface" | sed -En 's/.*inet ([^ ]+).*/\1/p'
 }
 
+function ssh-copy-id {
+    if [ "$#" != '1' ]; then
+        echo "Usage:"
+        echo "    ssh-copy-id user@host"
+    else
+        cat ~/.ssh/id_rsa.pub | ssh "$1" 'mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys'
+    fi
+}
+
 function git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
     echo "("${ref#refs/heads/}") ";
