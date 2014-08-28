@@ -27,6 +27,7 @@ alias mv="mv -i"
 alias ls="ls -HF --color=auto"
 alias ll="ls -lh"
 alias la="ll -A"
+alias grep="grep --color=auto"
 alias dh='df -H'
 alias ptt="ssh bbsu@ptt.cc"
 alias p2="ssh bbsu@ptt2.cc"
