@@ -61,6 +61,8 @@ function mkcd { mkdir -p "$@" && cd "$@"; }
 
 function len { echo ${#1}; }
 
+function t { date -d "+@$1"; }
+
 function v {
     if [ -n "$*" ]; then
         vim $*
