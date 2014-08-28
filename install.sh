@@ -4,7 +4,15 @@ for file in "${DIR}"/*
 do
     if [[ "$(basename $file)" != "install.sh" ]]
     then
-        echo "ln -s \"$file\" \"${HOME}/.$(basename $file)\""
-        ln -s "$file" "${HOME}/.$(basename $file)"
+        filename="$(basename "$file")"
+        target_filename="${HOME}/.${filename}"
+
+        if [[ -f "$target_filename" ]]
+        then
+            echo "${target_filename} already exist."
+        else
+            echo "ln -s \"$file\" \"$target_filename\""
+            ln -s "$file" "$target_filename"
+        fi
     fi
 done
