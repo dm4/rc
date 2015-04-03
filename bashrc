@@ -39,6 +39,7 @@ alias gap="git add -p"
 alias gcm="git commit -m"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
+alias et="vim ~/.tmux.conf"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 
@@ -156,6 +157,7 @@ if [ `uname` = "Darwin" ]; then
     alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
     alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
     alias md="open -a Marked"
+    alias lsusb="system_profiler SPUSBDataType"
 
     # ENV variables
     export JAVA_HOME=$(/usr/libexec/java_home)
