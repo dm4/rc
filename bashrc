@@ -103,46 +103,9 @@ function git_branch {
     echo "("${ref#refs/heads/}") ";
 }
 
-# [~] ➟
-function _arrow_prompt {
-    export PS1="\[\e[0;35m\]\$(git_branch)\[\e[1;30m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
-}
-
-# ★  15:36 [~] ---------
-# $
-function _seperated_prompt {
-    newPWD=`echo -n $PWD | perl -p -e "s{$HOME}{~}"`
-    local temp="11:11 [${newPWD}] $(git_branch) "
-    local fillsize=$((${COLUMNS}-${#temp}))
-    fill=`perl -e "print '-'x$fillsize if $fillsize > 0;"`
-    # ★ ❤
-    export PS1="\n\[\e[0;33m\]\A \[\e[1;33m\][\${newPWD}] \[\e[0;35m\]\$(git_branch)\[\e[1;30m\]\${fill}\n\[\e[0m\]$ "
-}
-
-# for powerline-bash
-function _powerline_prompt {
-    export PS1="$(~/.dotfiles/powerline-shell.py $?)"
-}
-
-# switch prompt
-function pmt {
-    export _prompt_setting=`perl -e "print (($_prompt_setting+1)%3)"`
-    if [ $_prompt_setting = 0 ]; then
-        export PROMPT_COMMAND="_arrow_prompt"
-    elif [ $_prompt_setting = 1 ]; then
-        if [ ! -f ~/.dotfiles/powerline-shell.py ]; then
-            curl -s -o ~/.dotfiles/powerline-shell.py https://raw.github.com/milkbikis/powerline-shell/master/powerline-shell.py
-            chmod +x ~/.dotfiles/powerline-shell.py
-        fi
-        export PROMPT_COMMAND="_powerline_prompt"
-    elif [ $_prompt_setting = 2 ]; then
-        export PROMPT_COMMAND="_seperated_prompt"
-    fi
-}
-
 # prompt setting
-export _prompt_setting=0
-export PROMPT_COMMAND="_arrow_prompt"
+# [~] ➟
+export PS1="\[\e[0;35m\]\$(git_branch)\[\e[m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
