@@ -106,7 +106,9 @@ function git_branch {
 
 # prompt setting
 # [~] ➟
-export PS1="\[\e[0;35m\]\$(git_branch)\[\e[m\][\w] \[\e[0;31m\]➟  \[\e[m\]"
+arrow_color="\e[0;31m"
+[ $UID -eq 0 ] && arrow_color="\e[0;34m"
+export PS1="\[\e[0;35m\]\$(git_branch)\[\e[m\][\w] \[${arrow_color}\]➟  \[\e[m\]"
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
