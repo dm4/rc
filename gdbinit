@@ -13,17 +13,17 @@ define reg
         printf "eip: 0x%08x  ", $eip
         printf "\n"
     else
-        printf "\e[1;33mrax[0m: 0x%016llx  ", $rax
-        printf "\e[1;33mrbx[0m: 0x%016llx  ", $rbx
-        printf "\e[1;33mrcx[0m: 0x%016llx  ", $rcx
+        printf "\e[1;33mrax\e[0m: 0x%016llx  ", $rax
+        printf "\e[1;33mrbx\e[0m: 0x%016llx  ", $rbx
+        printf "\e[1;33mrcx\e[0m: 0x%016llx  ", $rcx
         printf "\n"
-        printf "\e[1;33mrdx[0m: 0x%016llx  ", $rdx
-        printf "\e[1;33mrsi[0m: 0x%016llx  ", $rsi
-        printf "\e[1;33mrdi[0m: 0x%016llx  ", $rdi
+        printf "\e[1;33mrdx\e[0m: 0x%016llx  ", $rdx
+        printf "\e[1;33mrsi\e[0m: 0x%016llx  ", $rsi
+        printf "\e[1;33mrdi\e[0m: 0x%016llx  ", $rdi
         printf "\n"
-        printf "\e[1;33mrsp[0m: 0x%016llx  ", $rsp
-        printf "\e[1;33mrbp[0m: 0x%016llx  ", $rbp
-        printf "\e[1;33mrip[0m: 0x%016llx  ", $rip
+        printf "\e[1;33mrsp\e[0m: 0x%016llx  ", $rsp
+        printf "\e[1;33mrbp\e[0m: 0x%016llx  ", $rbp
+        printf "\e[1;33mrip\e[0m: 0x%016llx  ", $rip
         printf "\n"
     end
 end
