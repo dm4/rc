@@ -122,6 +122,7 @@ if [ `uname` = "Darwin" ]; then
     alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
     alias md="open -a Marked"
     alias lsusb="system_profiler SPUSBDataType"
+    alias dinit='test -x $(which boot2docker) && boot2docker up && eval "$(boot2docker shellinit)"'
 
     # ENV variables
     export JAVA_HOME=$(/usr/libexec/java_home)
