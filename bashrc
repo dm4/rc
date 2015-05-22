@@ -7,7 +7,7 @@
 #export PATH="$HOME/bin:$(perl -e 'print join ":", grep { $_ ne "$ENV{HOME}/bin" && $_ ne "~/bin" } split/:/, $ENV{PATH};')"
 #export PATH=".:$(perl -e 'print join ":", grep { $_ ne "." } split/:/, $ENV{PATH};')"
 
-[ -t 1 ] && [ -z "$TMUX" ] && bin/tmx
+[ -t 1 ] && [ -z "$TMUX" ] && [ -x bin/tmx ] && bin/tmx
 
 # Path
 export PATH=".:$HOME/bin/:$PATH"
