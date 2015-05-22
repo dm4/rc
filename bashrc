@@ -31,6 +31,7 @@ alias grep="grep --color=auto"
 alias dh='df -H'
 alias ptt="ssh bbsu@ptt.cc"
 alias p2="ssh bbsu@ptt2.cc"
+alias g="git"
 alias gs="git status"
 alias gd="git diff"
 alias gdw="git diff --word-diff"
