@@ -44,6 +44,9 @@ alias et="vim ~/.tmux.conf"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 
+# aotujump
+[ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
+
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
