@@ -133,6 +133,8 @@ if [ `uname` = "Darwin" ]; then
     # ENV variables
     export JAVA_HOME=$(/usr/libexec/java_home)
     export ANDROID_HOME=/usr/local/Cellar/android-sdk/r20.0.1
+    export GOPATH=${HOME}/workspace/go
+    export PATH=$PATH:$GOPATH/bin
 
     # to solve OSX Lion update_terminal_cwd bug
 #    . /etc/bashrc
