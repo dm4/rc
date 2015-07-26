@@ -138,7 +138,7 @@ if [ `uname` = "Darwin" ]; then
     alias lsb_release="system_profiler SPSoftwareDataType"
 
     # ENV variables
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
     export ANDROID_HOME=/usr/local/Cellar/android-sdk/r20.0.1
     export GOPATH=${HOME}/workspace/go
     export PATH=$PATH:$GOPATH/bin
