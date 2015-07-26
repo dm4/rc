@@ -43,6 +43,7 @@ alias eb="vim ~/.bashrc"
 alias et="vim ~/.tmux.conf"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
+alias gl="github_link"
 
 # aotujump
 [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
@@ -105,6 +106,11 @@ function ssh-copy-id {
 function git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
     echo "("${ref#refs/heads/}") ";
+}
+
+function github_link {
+    remote=$(git remote -v 2>/dev/null) || return;
+    echo "$remote" | sed 's|git@github.com:|https://github.com/|'
 }
 
 # prompt setting
