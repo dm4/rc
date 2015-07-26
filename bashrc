@@ -129,6 +129,7 @@ if [ `uname` = "Darwin" ]; then
     alias lsusb="system_profiler SPUSBDataType"
     alias dinit='test -x $(which boot2docker) && boot2docker up && eval "$(boot2docker shellinit)"'
     alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(boot2docker ip 2>&1 | grep 'IP address is' | sed -En 's/.* is: ([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+).*/\\1/p')"
+    alias lsb_release="system_profiler SPSoftwareDataType"
 
     # ENV variables
     export JAVA_HOME=$(/usr/libexec/java_home)
