@@ -44,6 +44,7 @@ alias et="vim ~/.tmux.conf"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 alias gl="github_link"
+alias gw="github_web"
 
 # aotujump
 [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
@@ -110,7 +111,12 @@ function git_branch {
 
 function github_link {
     remote=$(git remote -v 2>/dev/null) || return;
-    echo "$remote" | sed 's|git@github.com:|https://github.com/|'
+    echo "$remote" | sed 's|git@github.com:|https://github.com/|' | sed -nE 's|.*(http[^ ]*).*|\1|p'
+}
+
+function github_web {
+    local url=$(github_link | head -1)
+    open "$url"
 }
 
 # prompt setting
