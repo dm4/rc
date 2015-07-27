@@ -103,7 +103,7 @@ function git_branch {
 
 function github_link {
     remote=$(git remote -v 2>/dev/null) || return;
-    echo "$remote" | sed 's|git@github.com:|https://github.com/|' | sed -nE 's|.*(http[^ ]*).*|\1|p'
+    echo "$remote" | sed 's|git@github.com:|https://github.com/|' | sed -nE 's|.*(http[^ ]*).*|\1|p' | sort -u
 }
 
 function github_web {
