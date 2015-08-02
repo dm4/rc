@@ -174,6 +174,9 @@ if [ `uname` = "Darwin" ]; then
 
     # grc
     [ -f `brew --prefix grc`/etc/grc.bashrc ] && . `brew --prefix grc`/etc/grc.bashrc
+
+    # nvm
+    [ -f `brew --prefix nvm`/nvm.sh ] && . `brew --prefix nvm`/nvm.sh
 fi
 
 if [ $TERM = "xterm-256color" ]; then
