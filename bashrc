@@ -37,6 +37,12 @@ alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 alias gl="github_link"
 alias gw="github_web"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
+alias dstop="docker stop"
+alias dstart="docker start"
 
 # aotujump
 [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
@@ -111,6 +117,20 @@ function github_web {
     open "$url"
 }
 
+function drun {
+    local matched_num=$(docker ps -aqf "name=$1" | wc -l | sed -En 's/.*([0-9]+).*/\1/p')
+    if [ "$matched_num" = '0' ]; then
+        echo "Container $1 not found."
+    elif [ "$matched_num" = '1' ]; then
+        local container=$(docker ps -aqf "name=$1" | head -1)
+        docker start -a "$container"
+    else
+        echo "Which container do you wanna run?"
+        echo ""
+        docker ps -af "name=$1" | tail -n +2
+    fi
+}
+
 # prompt setting
 # [~] ➟
 arrow_color="\e[0;31m"
@@ -131,8 +151,10 @@ if [ `uname` = "Darwin" ]; then
     alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
     alias md="open -a Marked"
     alias lsusb="system_profiler SPUSBDataType"
-    alias dinit='test -x $(which boot2docker) && boot2docker up && eval "$(boot2docker shellinit)"'
-    alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(boot2docker ip 2>&1 | grep 'IP address is' | sed -En 's/.* is: ([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+).*/\\1/p')"
+    alias dm='docker-machine'
+    alias dip='docker-machine ip dev'
+    alias dinit='test -x $(which docker-machine) && docker-machine start dev && eval "$(docker-machine env dev)"'
+    alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(docker-machine ip dev)"
     alias lsb_release="system_profiler SPSoftwareDataType"
 
     # ENV variables
