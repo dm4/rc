@@ -37,6 +37,12 @@ alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 alias gl="github_link"
 alias gw="github_web"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
+alias dstart="docker start"
+alias dstop="docker stop"
 
 # aotujump
 [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
