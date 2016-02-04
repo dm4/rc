@@ -125,6 +125,16 @@ function drun {
     fi
 }
 
+function pk {
+    if [ "$#" != '1' ]; then
+        echo "Usage:"
+        echo "    pk <ID of pwnable.kr>"
+    else
+        curl -sd "user=$1" http://pwnable.kr/lib.php?cmd=finduser | sed -nE 's/.*"(.*)".*/\1/p'
+    fi
+
+}
+
 # prompt setting
 # [~] ➟
 arrow_color="\e[0;31m"
