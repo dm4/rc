@@ -44,17 +44,11 @@ alias drmi="docker rmi"
 alias dstop="docker stop"
 alias dstart="docker start"
 
-# aotujump
-[ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
-
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# nvm
-[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
 
 # rvm (rvm path should be at first place)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -199,6 +193,12 @@ if [ `uname` = "Darwin" ]; then
 
     # nvm
     [ -f `brew --prefix nvm`/nvm.sh ] && . `brew --prefix nvm`/nvm.sh
+else
+    # aotujump
+    [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
+
+    # nvm
+    [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
 fi
 
 if [ $TERM = "xterm-256color" ]; then
