@@ -96,11 +96,6 @@ function ssh-copy-id {
     fi
 }
 
-function git_branch {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    echo "("${ref#refs/heads/}") ";
-}
-
 function github_link {
     remote=$(git remote -v 2>/dev/null) || return;
     echo "$remote" | sed 's|git@github.com:|https://github.com/|' | sed -nE 's|.*(http[^ ]*).*|\1|p' | sort -u
