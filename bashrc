@@ -143,6 +143,7 @@ clear_color="\[\e[m\]"
 [ $UID -eq 0 ] && arrow_color="\e[0;34m"
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 [[ -f ~/.dotfiles/git-prompt.sh ]] && source ~/.dotfiles/git-prompt.sh
 export PS1="${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
