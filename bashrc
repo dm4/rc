@@ -137,9 +137,15 @@ function pk {
 
 # prompt setting
 # [~] ➟
-arrow_color="\e[0;31m"
+arrow_color="\[\e[0;31m\]"
+git_prompt_color="\[\e[0;35m\]"
+clear_color="\[\e[m\]"
 [ $UID -eq 0 ] && arrow_color="\e[0;34m"
-export PS1="\[\e[0;35m\]\$(git_branch)\[\e[m\][\w] \[${arrow_color}\]➟  \[\e[m\]"
+export GIT_PS1_SHOWUPSTREAM=auto
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+[[ -f ~/.dotfiles/git-prompt.sh ]] && source ~/.dotfiles/git-prompt.sh
+export PS1="${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
