@@ -87,25 +87,6 @@ function ip {
     ifconfig "$interface" | sed -En 's/.*inet ([^ ]+).*/\1/p'
 }
 
-function ssh-copy-id {
-    if [ "$#" != '1' ]; then
-        echo "Usage:"
-        echo "    ssh-copy-id user@host"
-    else
-        cat ~/.ssh/id_rsa.pub | ssh "$1" 'mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys'
-    fi
-}
-
-function github_link {
-    remote=$(git remote -v 2>/dev/null) || return;
-    echo "$remote" | sed 's|git@github.com:|https://github.com/|' | sed -nE 's|.*(http[^ ]*).*|\1|p' | sort -u
-}
-
-function github_web {
-    local url=$(github_link | head -1)
-    open "$url"
-}
-
 function drun {
     local matched_num=$(docker ps -aqf "name=$1" | wc -l | sed -En 's/.*([0-9]+).*/\1/p')
     if [ "$matched_num" = '0' ]; then
@@ -181,19 +162,6 @@ if [ `uname` = "Darwin" ]; then
             open "$*"
         else
             open .
-        fi
-    }
-
-    # macvim
-    function svim {
-        if [ -n "$*" ]; then
-            if [ "$(mvim --serverlist)" = 'VIM-SERVER' ]; then
-                mvim --servername VIM-SERVER --remote-tab $*
-            else
-                mvim --servername VIM-SERVER $*
-            fi
-        else
-            mvim --servername VIM-SERVER
         fi
     }
 
