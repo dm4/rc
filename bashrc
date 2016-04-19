@@ -142,9 +142,9 @@ if [ `uname` = "Darwin" ]; then
     alias md="open -a Marked"
     alias lsusb="system_profiler SPUSBDataType"
     alias dm='docker-machine'
-    alias dip='docker-machine ip dev'
-    alias dinit='test -x $(which docker-machine) && docker-machine start dev && eval "$(docker-machine env dev)"'
-    alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(docker-machine ip dev)"
+    alias dip='docker-machine ip'
+    alias dinit='test -x $(which docker-machine) && docker-machine start && eval "$(docker-machine env)"'
+    alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(docker-machine ip)"
     alias lsb_release="system_profiler SPSoftwareDataType"
 
     # ENV variables
