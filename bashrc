@@ -43,6 +43,8 @@ alias drm="docker rm"
 alias drmi="docker rmi"
 alias dstop="docker stop"
 alias dstart="docker start"
+alias nssh="ssh -o StrictHostKeyChecking=no"
+[ -n "$(which hub)" ] && alias git=hub
 
 # perlbrew
 [ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
