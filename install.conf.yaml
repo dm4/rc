@@ -6,9 +6,10 @@
 - clean: ['~']
 
 - link:
-    ~/.bashrc:
     ~/.bash_profile:
-    ~/.gitconfig:
+    ~/.bashrc:
     ~/.gdbinit:
+    ~/.gitconfig:
     ~/.inputrc:
+    ~/.tmux.conf:
     ~/bin:
