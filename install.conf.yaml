@@ -1,0 +1,14 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.bashrc:
+    ~/.bash_profile:
+    ~/.gitconfig:
+    ~/.gdbinit:
+    ~/.inputrc:
+    ~/bin:

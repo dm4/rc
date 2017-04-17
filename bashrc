@@ -126,8 +126,7 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-[ ! -f ~/.dotfiles/git-prompt.sh ] && curl -so ~/.dotfiles/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-source ~/.dotfiles/git-prompt.sh
+[ -f ~/bin/git-prompt.sh ] && source ~/bin/git-prompt.sh
 
 # prompt setting
 # [~] ➟
