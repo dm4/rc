@@ -113,6 +113,14 @@ function pk {
 
 }
 
+function remove_known_host {
+    [ -n "$1" ] && sed -i '' "$1d" ~/.ssh/known_hosts
+}
+
+function yaml2json {
+    [ -n "$1" ] && [ -f "$1" ] && python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' < "$1"
+}
+
 # git-prompt setting
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWDIRTYSTATE=true
