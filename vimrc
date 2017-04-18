@@ -25,7 +25,6 @@ Plug 'fatih/vim-go'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'kchmck/vim-coffee-script'
-Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " indent
