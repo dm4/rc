@@ -117,6 +117,15 @@ function remove_known_host {
     [ -n "$1" ] && sed -i '' "$1d" ~/.ssh/known_hosts
 }
 
+function ish {
+    if [ -n "$1" ]; then
+        local ip="$1"
+        shift
+        echo ssh "192.168.1.$ip" "$@"
+        ssh -A -o StrictHostKeyChecking=no "192.168.1.$ip" "$@"
+    fi
+}
+
 function yaml2json {
     [ -n "$1" ] && [ -f "$1" ] && python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' < "$1"
 }
