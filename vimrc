@@ -7,24 +7,24 @@
 scriptencoding utf-8
 
 call plug#begin()
-Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree'
-Plug 'msanders/snipmate.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'sjl/gundo.vim'
-Plug 'c9s/simple-commenter.vim'
 Plug 'AutoComplPop'
 Plug 'hexHighlight.vim'
-Plug 'dm4/vim-writer'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'mattn/emmet-vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'altercation/vim-colors-solarized'
-Plug 'fatih/vim-go'
-Plug 'pangloss/vim-javascript'
+Plug 'c9s/simple-commenter.vim'
+Plug 'dm4/vim-writer'
+Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/emmet-vim'
+Plug 'msanders/snipmate.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " indent
