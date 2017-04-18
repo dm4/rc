@@ -133,6 +133,8 @@ nmap <C-K>      ddkP==
 nmap <Leader>n  <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>gun :GundoToggle<CR>
 nmap <Leader>b  :e ++enc=big5<CR>
+vmap <Leader>c  "+y
+nmap <Leader>v  "+p
 nmap <Leader>u  :e ++enc=utf-8<CR>
 nmap <Leader>p  :set paste!<CR>
 nmap <Leader>r  :set wrap!<CR>
