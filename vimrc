@@ -7,7 +7,7 @@
 scriptencoding utf-8
 
 call plug#begin()
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'msanders/snipmate.vim'
 Plug 'tpope/vim-surround'
