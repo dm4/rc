@@ -12,4 +12,6 @@
     ~/.gitconfig:
     ~/.inputrc:
     ~/.tmux.conf:
+    ~/.vim:
+    ~/.vimrc:
     ~/bin:
