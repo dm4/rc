@@ -15,3 +15,8 @@
     ~/.vim:
     ~/.vimrc:
     ~/bin:
+
+- shell:
+  -
+    command: vim +PlugInstall +qall
+    stdout: true
