@@ -1,1 +1,4 @@
 .*.sw[a-z]
+vim/backup/
+vim/plugged/
+vim/undo/
