@@ -47,14 +47,39 @@ alias nssh="ssh -o StrictHostKeyChecking=no"
 [ -n "$(which md5sum)" ] && alias md5="md5sum"
 [ -n "$(which hub)" ] && alias git=hub
 
-# perlbrew
-[ -f ~/perl5/perlbrew/etc/bashrc ] && . ~/perl5/perlbrew/etc/bashrc
+###
+# Lazy load for some version management tools.
+###
+
+# rvm
+lazy_laod_rvm() {
+    unset -f $1
+    [ -s "~/.rvm/scripts/rvm" ] && source "~/.rvm/scripts/rvm"
+}
+irb()  { lazy_laod_rvm $FUNCNAME && $FUNCNAME "$@"; }
+ruby() { lazy_laod_rvm $FUNCNAME && $FUNCNAME "$@"; }
+rvm()  { lazy_laod_rvm $FUNCNAME && $FUNCNAME "$@"; }
 
 # pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+lazy_laod_pyenv() {
+    unset -f $1
+    [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
+}
+pip()    { lazy_laod_pyenv $FUNCNAME && $FUNCNAME "$@"; }
+pyenv()  { lazy_laod_pyenv $FUNCNAME && $FUNCNAME "$@"; }
+python() { lazy_laod_pyenv $FUNCNAME && $FUNCNAME "$@"; }
 
-# rvm (rvm path should be at first place)
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# nvm
+lazy_laod_nvm() {
+    unset -f $1
+    export NVM_DIR="$HOME/.nvm"
+    local nvm_sh_path="$NVM_DIR/nvm.sh"
+    [ "$(uname)" = Darwin ] && nvm_sh_path=/usr/local/opt/nvm/nvm.sh
+    [ -s "$nvm_sh_path" ] && source "$nvm_sh_path"
+}
+node() { lazy_laod_nvm $FUNCNAME && $FUNCNAME "$@"; }
+npm()  { lazy_laod_nvm $FUNCNAME && $FUNCNAME "$@"; }
+nvm()  { lazy_laod_nvm $FUNCNAME && $FUNCNAME "$@"; }
 
 # Functions
 
@@ -183,15 +208,9 @@ if [ `uname` = "Darwin" ]; then
 
     # autojump
     [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
-
-    # nvm
-    [ -f `brew --prefix nvm`/nvm.sh ] && . `brew --prefix nvm`/nvm.sh
 else
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
-
-    # nvm
-    [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
 fi
 
 if [ $TERM = "xterm-256color" ]; then
