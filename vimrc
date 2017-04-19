@@ -84,9 +84,9 @@ set winminwidth=0
 autocmd! BufWritePost *vimrc source %
 
 " set filetype
-autocmd BufReadPost,BufNewFile *.tt set filetype=html
+autocmd BufReadPost,BufNewFile *.md        set filetype=markdown
+autocmd BufReadPost,BufNewFile *.tt        set filetype=html
 autocmd BufReadPost,BufNewFile httpd*.conf set filetype=apache
-autocmd BufReadPost,BufNewFile *.md set filetype=markdown
 
 " tabs & spaces
 autocmd FileType eruby      set sw=2 ts=2 softtabstop=2
