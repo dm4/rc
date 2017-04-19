@@ -179,9 +179,6 @@ if [ `uname` = "Darwin" ]; then
     # autojump
     [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
 
-    # grc
-    [ -f `brew --prefix grc`/etc/grc.bashrc ] && . `brew --prefix grc`/etc/grc.bashrc
-
     # nvm
     [ -f `brew --prefix nvm`/nvm.sh ] && . `brew --prefix nvm`/nvm.sh
 else
