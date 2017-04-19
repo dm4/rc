@@ -167,9 +167,11 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # prompt setting
 # [~] ➟
-arrow_color_number=$(printf "%d" 0x$(hostname | md5 | cut -c 1))
+md5_cmd=md5sum
+[ -z "$(which $md5_cmd)" ] && md5_cmd=md5
+arrow_color_number=$(printf "%d" 0x$(hostname | $md5_cmd | cut -c 1))
 arrow_color_number=$(expr $arrow_color_number % 6 + 31)
-git_prompt_color_number=$(printf "%d" 0x$(hostname | md5 | cut -c 2))
+git_prompt_color_number=$(printf "%d" 0x$(hostname | $md5_cmd | cut -c 2))
 git_prompt_color_number=$(expr $git_prompt_color_number % 6 + 31)
 arrow_color="\[\e[0;${arrow_color_number}m\]"
 git_prompt_color="\[\e[0;${git_prompt_color_number}m\]"
