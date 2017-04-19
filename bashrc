@@ -1,6 +1,9 @@
 # tmux setup
 [ -t 1 ] && [ -z "$TMUX" ] && [ -f ~/.tmux-enable ] && [ -x ~/bin/tmx ] && ~/bin/tmx
 
+# PS1 placeholder for fake speed up!
+echo -n '[~] ➟  '
+
 # Path
 export PATH=".:$HOME/bin/:$PATH"
 
@@ -226,3 +229,6 @@ if [ $TERM = "xterm-256color" ]; then
     export LESS_TERMCAP_ue=$'\E[0m' # end underline
     export LESS_TERMCAP_uz=$'\E[0m' # just for export looking by dm4
 fi
+
+# Clear placeholder
+printf '\e[2J\e[H'
