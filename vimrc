@@ -94,6 +94,7 @@ autocmd FileType html       set sw=2 ts=2 softtabstop=2
 autocmd FileType javascript set sw=2 ts=2 softtabstop=2
 autocmd FileType json       set sw=2 ts=2 softtabstop=2
 autocmd FileType ruby       set sw=2 ts=2 softtabstop=2
+autocmd FileType yaml       set sw=2 ts=2 softtabstop=2
 
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
