@@ -120,34 +120,31 @@ nmap j gj
 nmap k gk
 vmap j gj
 vmap k gk
-imap <C-D>      <DEL>
-nmap <C-L>      :set nu!<CR>
-nmap <C-n>      gt
-nmap <C-p>      gT
-imap <C-a>      <HOME>
-imap <C-e>      <END>
-imap <C-f>      <RIGHT>
-imap <C-b>      <LEFT>
-nmap <C-J>      ddp==
-nmap <C-K>      ddkP==
-nmap <Leader>n  <plug>NERDTreeTabsToggle<CR>
+imap <C-A>   <HOME>
+imap <C-B>   <LEFT>
+imap <C-D>   <DEL>
+imap <C-E>   <END>
+imap <C-F>   <RIGHT>
+nmap <C-J>   ddp==
+nmap <C-K>   ddkP==
+nmap <C-L>   :set nu!<CR>
+nmap <C-N>   gt
+nmap <C-P>   gT
+nmap <C-Tab> gt
+nmap <Leader>b   :e ++enc=big5<CR>
+nmap <Leader>ev  :tabnew $MYVIMRC<CR>
+vmap <Leader>ga  <Plug>(EasyAlign)
 nmap <Leader>gun :GundoToggle<CR>
-nmap <Leader>b  :e ++enc=big5<CR>
-vmap <Leader>c  "+y
-nmap <Leader>v  "+p
-nmap <Leader>u  :e ++enc=utf-8<CR>
-nmap <Leader>p  :set paste!<CR>
-nmap <Leader>r  :set wrap!<CR>
-nmap <Leader>ev :tabnew $MYVIMRC<CR>
-nmap <Leader>h  :set hls!<CR>
-nmap <Leader>s  :w<CR>:source %<CR>
-nmap <Leader>i  :set list!<CR>
-
-" ctrl-tab only works on gui
-nmap <C-Tab>    gt
-
-" hexHighlight plugin
-nmap <Leader>l :call HexHighlight()<CR>
+nmap <Leader>h   :set hls!<CR>
+nmap <Leader>i   :set list!<CR>
+nmap <Leader>l   :call HexHighlight()<CR>
+nmap <Leader>n   <plug>NERDTreeTabsToggle<CR>
+nmap <Leader>p   :set paste!<CR>
+nmap <Leader>r   :set wrap!<CR>
+nmap <Leader>s   :w<CR>:source %<CR>
+nmap <Leader>u   :e ++enc=utf-8<CR>
+nmap <Leader>v   "+p
+vmap <Leader>c   "+y
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-C> :call <SID>SynStack()<CR>
