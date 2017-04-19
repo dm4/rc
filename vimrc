@@ -141,7 +141,6 @@ nmap <Leader>l   :call HexHighlight()<CR>
 nmap <Leader>n   <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>p   :set paste!<CR>
 nmap <Leader>r   :set wrap!<CR>
-nmap <Leader>s   :w<CR>:source %<CR>
 nmap <Leader>u   :e ++enc=utf-8<CR>
 nmap <Leader>v   "+p
 vmap <Leader>c   "+y
