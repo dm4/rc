@@ -135,7 +135,7 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-[ -f ~/.dotfiles/git-prompt.sh ] && source ~/.dotfiles/git-prompt.sh
+[ -f ~/.rc/git-prompt.sh ] && source ~/.rc/git-prompt.sh
 
 # prompt setting
 # [~] ➟
