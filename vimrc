@@ -143,6 +143,9 @@ nmap <Leader>gdv <Plug>(go-doc-vertical)
 nmap <Leader>gdt <Plug>(go-doc-tab)
 nmap <leader>gr  <Plug>(go-run)
 nmap <Leader>gi  <Plug>(go-implements)
+map  <Leader>sc  <Plug>(do-comment)
+map  <Leader>su  <Plug>(un-comment)
+map  <Leader><Leader> <Plug>(one-line-comment)
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-C> :call <SID>SynStack()<CR>
@@ -196,7 +199,8 @@ set statusline+=%p%%\
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " simplecommenter
-let g:oneline_comment_padding = ''
+let g:oneline_comment_padding  = ''
+let g:scomment_default_mapping = 0
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
