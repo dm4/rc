@@ -133,6 +133,7 @@ nmap <C-P>   gT
 nmap <C-Tab> gt
 nmap <Leader>b   :e ++enc=big5<CR>
 nmap <Leader>ev  :tabnew $MYVIMRC<CR>
+map  <Leader>em  <Plug>(easymotion-prefix)
 vmap <Leader>ga  <Plug>(EasyAlign)
 nmap <Leader>gun :GundoToggle<CR>
 nmap <Leader>h   :set hls!<CR>
