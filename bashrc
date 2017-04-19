@@ -1,5 +1,5 @@
 # tmux setup
-[ -t 1 ] && [ -z "$TMUX" ] && [ -x bin/tmx ] && bin/tmx
+[ -t 1 ] && [ -z "$TMUX" ] && [ -f ~/.tmux-enable ] && [ -x ~/bin/tmx ] && ~/bin/tmx
 
 # Path
 export PATH=".:$HOME/bin/:$PATH"
