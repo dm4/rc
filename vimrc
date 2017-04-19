@@ -98,12 +98,6 @@ autocmd FileType ruby       set sw=2 ts=2 softtabstop=2
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
 
-" for vim-go
-autocmd FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
-autocmd FileType go nmap <Leader>gdt <Plug>(go-doc-tab)
-autocmd FileType go nmap <leader>gr <Plug>(go-run)
-autocmd FileType go nmap <Leader>gi <Plug>(go-implements)
-
 " Save last postion
 if has("autocmd")
    autocmd BufReadPost *
@@ -145,6 +139,10 @@ nmap <Leader>r   :set wrap!<CR>
 nmap <Leader>u   :e ++enc=utf-8<CR>
 nmap <Leader>v   "+p
 vmap <Leader>c   "+y
+nmap <Leader>gdv <Plug>(go-doc-vertical)
+nmap <Leader>gdt <Plug>(go-doc-tab)
+nmap <leader>gr  <Plug>(go-run)
+nmap <Leader>gi  <Plug>(go-implements)
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-C> :call <SID>SynStack()<CR>
