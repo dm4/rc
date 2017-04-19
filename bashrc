@@ -47,7 +47,6 @@ alias drmi="docker rmi"
 alias dstop="docker stop"
 alias dstart="docker start"
 alias nssh="ssh -o StrictHostKeyChecking=no"
-[ -n "$(which md5sum)" ] && alias md5="md5sum"
 [ -n "$(which hub)" ] && alias git=hub
 
 ###
