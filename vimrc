@@ -200,6 +200,9 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 " simplecommenter
 let g:oneline_comment_padding = ''
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
 if has("gui_running")
     " set colors
     set background=light
