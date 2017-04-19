@@ -172,9 +172,6 @@ if [ `uname` = "Darwin" ]; then
     export GOPATH=${HOME}/workspace/go
     export PATH=$PATH:$GOPATH/bin
 
-    # to solve OSX Lion update_terminal_cwd bug
-#    . /etc/bashrc
-
     # open in finder
     function o {
         if [ -n "$*" ]; then
