@@ -172,15 +172,6 @@ if [ `uname` = "Darwin" ]; then
     export GOPATH=${HOME}/workspace/go
     export PATH=$PATH:$GOPATH/bin
 
-    # open in finder
-    function o {
-        if [ -n "$*" ]; then
-            open "$*"
-        else
-            open .
-        fi
-    }
-
     # bash completions
     [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
     [ -f `brew --prefix`/etc/bash_completion.d/vagrant ] && . `brew --prefix`/etc/bash_completion.d/vagrant
