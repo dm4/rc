@@ -44,6 +44,7 @@ alias drmi="docker rmi"
 alias dstop="docker stop"
 alias dstart="docker start"
 alias nssh="ssh -o StrictHostKeyChecking=no"
+[ -n "$(which md5sum)" ] && alias md5="md5sum"
 [ -n "$(which hub)" ] && alias git=hub
 
 # perlbrew
@@ -139,8 +140,12 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # prompt setting
 # [~] ➟
-arrow_color="\[\e[0;31m\]"
-git_prompt_color="\[\e[0;35m\]"
+arrow_color_number=$(printf "%d" 0x$(hostname | md5 | cut -c 1))
+arrow_color_number=$(expr $arrow_color_number % 6 + 31)
+git_prompt_color_number=$(printf "%d" 0x$(hostname | md5 | cut -c 2))
+git_prompt_color_number=$(expr $git_prompt_color_number % 6 + 31)
+arrow_color="\[\e[0;${arrow_color_number}m\]"
+git_prompt_color="\[\e[0;${git_prompt_color_number}m\]"
 clear_color="\[\e[m\]"
 [ $UID -eq 0 ] && arrow_color="\e[0;34m"
 export PS1="${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
