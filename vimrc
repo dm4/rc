@@ -89,12 +89,12 @@ autocmd BufReadPost,BufNewFile *.tt        set filetype=html
 autocmd BufReadPost,BufNewFile httpd*.conf set filetype=apache
 
 " tabs & spaces
-autocmd FileType eruby      set sw=2 ts=2 softtabstop=2
-autocmd FileType html       set sw=2 ts=2 softtabstop=2
-autocmd FileType javascript set sw=2 ts=2 softtabstop=2
-autocmd FileType json       set sw=2 ts=2 softtabstop=2
-autocmd FileType ruby       set sw=2 ts=2 softtabstop=2
-autocmd FileType yaml       set sw=2 ts=2 softtabstop=2
+autocmd FileType eruby      set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType html       set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType javascript set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType json       set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType ruby       set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType yaml       set sw=2 ts=2 softtabstop=2 expandtab
 
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
