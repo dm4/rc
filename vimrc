@@ -88,12 +88,12 @@ autocmd BufReadPost,BufNewFile *.tt set filetype=html
 autocmd BufReadPost,BufNewFile httpd*.conf set filetype=apache
 autocmd BufReadPost,BufNewFile *.md set filetype=markdown
 
-" set indent
-autocmd BufReadPost,BufNewFile *.rb set sw=2 ts=2 softtabstop=2
-autocmd BufReadPost,BufNewFile *.erb set sw=2 ts=2 softtabstop=2
-"autocmd BufReadPost,BufNewFile *.html set sw=2 ts=2 softtabstop=2
+" tabs & spaces
+autocmd FileType eruby      set sw=2 ts=2 softtabstop=2
+autocmd FileType html       set sw=2 ts=2 softtabstop=2
 autocmd FileType javascript set sw=2 ts=2 softtabstop=2
-autocmd FileType json set sw=2 ts=2 softtabstop=2
+autocmd FileType json       set sw=2 ts=2 softtabstop=2
+autocmd FileType ruby       set sw=2 ts=2 softtabstop=2
 
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
