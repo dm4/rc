@@ -175,7 +175,12 @@ arrow_color="\[\e[0;${arrow_color_number}m\]"
 git_prompt_color="\[\e[0;${git_prompt_color_number}m\]"
 clear_color="\[\e[m\]"
 tmux_title='\[\e]2;$(hostname -s)\e\\\]'
+prompt_command() {
+    history -a
+    printf "%${COLUMNS}s\r" "$(date '+%F %T')"
+}
 export PS1="${tmux_title}${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
+export PROMPT_COMMAND=prompt_command
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
