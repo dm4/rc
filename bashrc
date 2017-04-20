@@ -2,7 +2,7 @@
 [ -t 1 ] && [ -z "$TMUX" ] && [ -f ~/.tmux-enable ] && [ -x ~/bin/tmx ] && ~/bin/tmx
 
 # PS1 placeholder for fake speed up!
-echo -n '[~] ➟  '
+printf '\e[s[~] ➟  '
 
 # Path
 export PATH=".:$HOME/bin/:$PATH"
@@ -231,4 +231,4 @@ if [ $TERM = "xterm-256color" ]; then
 fi
 
 # Clear placeholder
-printf '\e[2J\e[H'
+printf '\e[2K\e[u'
