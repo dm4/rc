@@ -174,8 +174,9 @@ git_prompt_color_number=$(expr $git_prompt_color_number % 6 + 31)
 arrow_color="\[\e[0;${arrow_color_number}m\]"
 git_prompt_color="\[\e[0;${git_prompt_color_number}m\]"
 clear_color="\[\e[m\]"
+tmux_title='\[\e]2;$(hostname -s)\e\\\]'
 [ $UID -eq 0 ] && arrow_color="\e[0;34m"
-export PS1="${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
+export PS1="${tmux_title}${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
