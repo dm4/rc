@@ -16,6 +16,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dm4/vim-writer'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
+Plug 'ericpruitt/tmux.vim', {'rtp': 'vim'}
 Plug 'fatih/vim-go'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
