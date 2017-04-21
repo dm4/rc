@@ -53,34 +53,40 @@ alias nssh="ssh -o StrictHostKeyChecking=no"
 ###
 
 # rvm
-lazy_laod_rvm() {
-    unset -f $1
+rvm_commands=(irb ruby rvm)
+lazy_load_rvm() {
+    unset -f "${rvm_commands[@]}"
     [ -s "~/.rvm/scripts/rvm" ] && source "~/.rvm/scripts/rvm"
 }
-irb()  { lazy_laod_rvm $FUNCNAME && $FUNCNAME "$@"; }
-ruby() { lazy_laod_rvm $FUNCNAME && $FUNCNAME "$@"; }
-rvm()  { lazy_laod_rvm $FUNCNAME && $FUNCNAME "$@"; }
+for rvm_command in "${rvm_commands[@]}"
+do
+    eval "${rvm_command}() { lazy_load_rvm; ${rvm_command} \"\$@\"; }"
+done
 
 # pyenv
-lazy_laod_pyenv() {
-    unset -f $1
+pyenv_commands=(pip pyenv python)
+lazy_load_pyenv() {
+    unset -f "${pyenv_commands[@]}"
     [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
 }
-pip()    { lazy_laod_pyenv $FUNCNAME && $FUNCNAME "$@"; }
-pyenv()  { lazy_laod_pyenv $FUNCNAME && $FUNCNAME "$@"; }
-python() { lazy_laod_pyenv $FUNCNAME && $FUNCNAME "$@"; }
+for pyenv_command in "${pyenv_commands[@]}"
+do
+    eval "${pyenv_command}() { lazy_load_pyenv; ${pyenv_command} \"\$@\"; }"
+done
 
 # nvm
-lazy_laod_nvm() {
-    unset -f $1
+nvm_commands=(node npm nvm)
+lazy_load_nvm() {
+    unset -f "${nvm_commands[@]}"
     export NVM_DIR="$HOME/.nvm"
     local nvm_sh_path="$NVM_DIR/nvm.sh"
     [ "$(uname)" = Darwin ] && nvm_sh_path=/usr/local/opt/nvm/nvm.sh
     [ -s "$nvm_sh_path" ] && source "$nvm_sh_path"
 }
-node() { lazy_laod_nvm $FUNCNAME && $FUNCNAME "$@"; }
-npm()  { lazy_laod_nvm $FUNCNAME && $FUNCNAME "$@"; }
-nvm()  { lazy_laod_nvm $FUNCNAME && $FUNCNAME "$@"; }
+for nvm_command in "${nvm_commands[@]}"
+do
+    eval "${nvm_command}() { lazy_load_nvm; ${nvm_command} \"\$@\"; }"
+done
 
 # Functions
 
