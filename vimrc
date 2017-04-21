@@ -128,7 +128,9 @@ nmap <C-N>   gt
 nmap <C-P>   gT
 nmap <C-Tab> gt
 nmap <Leader>b   :e ++enc=big5<CR>
-nmap <Leader>ev  :tabnew $MYVIMRC<CR>
+nmap <Leader>eb  :tabnew ~/.bashrc<CR>
+nmap <Leader>et  :tabnew ~/.tmux.conf<CR>
+nmap <Leader>ev  :tabnew ~/.vimrc<CR>
 map  <Leader>em  <Plug>(easymotion-prefix)
 vmap <Leader>ga  <Plug>(EasyAlign)
 nmap <Leader>gun :GundoToggle<CR>
