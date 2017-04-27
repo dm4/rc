@@ -175,9 +175,9 @@ endif
 " theme setting
 set cursorline
 set background=dark
-"colorscheme solarized
+"silent! colorscheme solarized
 set t_ut=
-colorscheme jellybeans
+silent! colorscheme jellybeans
 
 " Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
