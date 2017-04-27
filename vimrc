@@ -30,6 +30,7 @@ Plug 'sjl/gundo.vim'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 " indent
@@ -174,7 +175,9 @@ endif
 " theme setting
 set cursorline
 set background=dark
-silent! colorscheme solarized
+"colorscheme solarized
+set t_ut=
+colorscheme jellybeans
 
 " Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -212,7 +215,7 @@ let g:vim_json_syntax_conceal = 0
 if has("gui_running")
     " set colors
     set background=light
-    silent! colorscheme solarized
+    colorscheme solarized
 "    set guifont=Monaco:h17
     set guifont=Source\ Code\ Pro:h18
 
