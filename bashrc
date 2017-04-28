@@ -191,6 +191,10 @@ prompt_command() {
 export PS1="${tmux_title}${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
 export PROMPT_COMMAND=prompt_command
 
+# source
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
+
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
     # alias
