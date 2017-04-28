@@ -8,7 +8,6 @@ scriptencoding utf-8
 
 call plug#begin()
 Plug 'AutoComplPop'
-Plug 'hexHighlight.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'altercation/vim-colors-solarized'
 Plug 'c9s/simple-commenter.vim'
@@ -19,19 +18,20 @@ Plug 'elzr/vim-json'
 Plug 'ericpruitt/tmux.vim', {'rtp': 'vim'}
 Plug 'fatih/vim-go'
 Plug 'garbas/vim-snipmate'
+Plug 'hexHighlight.vim'
 Plug 'honza/vim-snippets'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
+Plug 'nanotech/jellybeans.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 " indent
