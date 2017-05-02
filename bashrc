@@ -12,8 +12,10 @@ export SVN_EDITOR=vim
 export EDITOR=vim
 
 # History
-export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth
+export HISTFILESIZE=${HISTSIZE}
+export HISTSIZE=10000
+export HISTTIMEFORMAT='%F %T '
 
 # Aliases
 alias rm="rm -i"
