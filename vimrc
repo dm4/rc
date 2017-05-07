@@ -41,6 +41,7 @@ set smartindent
 set cindent
 set ignorecase
 set hls
+set termguicolors
 
 " tab and space
 set shiftwidth=4
