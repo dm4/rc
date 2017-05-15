@@ -18,7 +18,6 @@ Plug 'elzr/vim-json'
 Plug 'ericpruitt/tmux.vim', {'rtp': 'vim'}
 Plug 'fatih/vim-go'
 Plug 'garbas/vim-snipmate'
-Plug 'hexHighlight.vim'
 Plug 'honza/vim-snippets'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -33,6 +32,7 @@ Plug 'sjl/gundo.vim'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug 'yurifury/hexHighlight'
 call plug#end()
 
 " indent
@@ -139,7 +139,7 @@ vmap <Leader>ga  <Plug>(EasyAlign)
 nmap <Leader>gun :GundoToggle<CR>
 nmap <Leader>h   :set hls!<CR>
 nmap <Leader>i   :set list!<CR>
-nmap <Leader>l   :call HexHighlight()<CR>
+nmap <Leader>l   <Plug>HexHighlightToggle
 nmap <Leader>n   <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>p   :set paste!<CR>
 nmap <Leader>r   :set wrap!<CR>
