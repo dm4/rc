@@ -41,7 +41,6 @@ set smartindent
 set cindent
 set ignorecase
 set hls
-set termguicolors
 
 " tab and space
 set shiftwidth=4
@@ -167,6 +166,9 @@ endfunc
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 " color setting
+if has("termguicolors")
+    set termguicolors
+endif
 if $TERM == "xterm-256color" || $TERM == "screen-256color"
     " set 256 colors
     set t_Co=256
