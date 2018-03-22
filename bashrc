@@ -148,12 +148,6 @@ function pk {
 
 }
 
-function ssh {
-    tmux rename-window "$*"
-    command ssh "$@"
-    tmux setw automatic-rename on
-}
-
 function remove_known_host {
     [ -n "$1" ] && sed -i '' "$1d" ~/.ssh/known_hosts
 }
