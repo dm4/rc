@@ -215,6 +215,7 @@ if [ `uname` = "Darwin" ]; then
     alias dinit='test -x $(which docker-machine) && docker-machine start && eval "$(docker-machine env)"'
     alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(docker-machine ip)"
     alias lsb_release="system_profiler SPSoftwareDataType"
+    alias flush_dns_cache="sudo killall -HUP mDNSResponder"
 
     # ENV variables
     export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
