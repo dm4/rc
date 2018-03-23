@@ -33,6 +33,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'yurifury/hexHighlight'
+Plug 'tomlion/vim-solidity'
 call plug#end()
 
 " indent
@@ -88,6 +89,7 @@ set winminwidth=0
 autocmd! BufWritePost *vimrc source %
 
 " set filetype
+autocmd BufReadPost,BufNewFile *.ejs       set filetype=javascript
 autocmd BufReadPost,BufNewFile *.md        set filetype=markdown
 autocmd BufReadPost,BufNewFile *.tt        set filetype=html
 autocmd BufReadPost,BufNewFile httpd*.conf set filetype=apache
@@ -99,6 +101,7 @@ autocmd FileType javascript set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType json       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType ruby       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType yaml       set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType solidity   set sw=2 ts=2 softtabstop=2 expandtab
 
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
@@ -135,6 +138,7 @@ nmap <Leader>eb  :tabnew ~/.bashrc<CR>
 nmap <Leader>et  :tabnew ~/.tmux.conf<CR>
 nmap <Leader>ev  :tabnew ~/.vimrc<CR>
 map  <Leader>em  <Plug>(easymotion-prefix)
+map  <Leader>fzf :FZF<CR>
 vmap <Leader>ga  <Plug>(EasyAlign)
 nmap <Leader>gun :GundoToggle<CR>
 nmap <Leader>h   :set hls!<CR>
