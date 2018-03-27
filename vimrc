@@ -7,7 +7,7 @@
 scriptencoding utf-8
 
 call plug#begin()
-Plug 'AutoComplPop'
+Plug 'vim-scripts/AutoComplPop'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'altercation/vim-colors-solarized'
 Plug 'c9s/simple-commenter.vim'
