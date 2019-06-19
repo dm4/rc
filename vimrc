@@ -7,8 +7,8 @@
 scriptencoding utf-8
 
 call plug#begin()
-Plug 'vim-scripts/AutoComplPop'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'c9s/simple-commenter.vim'
 Plug 'dm4/vim-writer'
@@ -28,11 +28,12 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
+Plug 'tomlion/vim-solidity'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/AutoComplPop'
 Plug 'yurifury/hexHighlight'
-Plug 'tomlion/vim-solidity'
 call plug#end()
 
 " indent
