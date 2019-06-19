@@ -145,7 +145,7 @@ nmap <Leader>h   :set hls!<CR>
 nmap <Leader>i   :set list!<CR>
 nmap <Leader>l   <Plug>HexHighlightToggle
 nmap <Leader>n   <plug>NERDTreeTabsToggle<CR>
-nmap <Leader>p   :set paste!<CR>
+nmap <Leader>pa  :set paste!<CR>
 nmap <Leader>r   :set wrap!<CR>
 nmap <Leader>u   :e ++enc=utf-8<CR>
 nmap <Leader>v   "+p
