@@ -7,8 +7,6 @@
 scriptencoding utf-8
 
 call plug#begin()
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'c9s/simple-commenter.vim'
 Plug 'dm4/vim-writer'
@@ -16,14 +14,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'ericpruitt/tmux.vim', {'rtp': 'vim'}
 Plug 'fatih/vim-go'
-Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
@@ -225,7 +220,6 @@ if has("gui_running")
     " set colors
     set background=light
     colorscheme solarized
-"    set guifont=Monaco:h17
     set guifont=Source\ Code\ Pro:h18
 
     " window size
@@ -247,8 +241,6 @@ if has("gui_running")
     set antialias
 
     if has("gui_macvim")
-        " set CMD+ENTER fullscreen
         set fuopt=maxhorz,maxvert
-"        set fullscreen
     endif
 endif
