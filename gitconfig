@@ -17,6 +17,8 @@
     default = simple
 [branch]
     autosetuprebase = always
+[pull]
+    rebase = true
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
