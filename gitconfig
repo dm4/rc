@@ -1,6 +1,7 @@
 [user]
     name = dm4
     email = sunrisedm4@gmail.com
+    signingkey = A9D5D088040C99DA
 [color]
     ui = true
 [alias]
