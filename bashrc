@@ -70,12 +70,17 @@ done
 
 # Functions
 
-# mkdir & cd
-function mkcd { mkdir -p "$@" && cd "$@"; }
-
 function len { echo ${#1}; }
+function mkcd { mkdir -p "$@" && cd "$@"; }
+function newx { touch "$1" && chmod +x "$1"; }
 
-function t { date -d "+@$1"; }
+function t {
+    if [ `uname` = 'Darwin' ]; then
+        date -r "$1"
+    else
+        date -d "+@$1"
+    fi
+}
 
 function v {
     if [ -n "$*" ]; then
