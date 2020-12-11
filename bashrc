@@ -125,41 +125,8 @@ function ip {
     ifconfig "$interface" | sed -En 's/.*inet ([^ ]+).*/\1/p'
 }
 
-function drun {
-    local matched_num=$(docker ps -aqf "name=$1" | wc -l | sed -En 's/.*([0-9]+).*/\1/p')
-    if [ "$matched_num" = '0' ]; then
-        echo "Container $1 not found."
-    elif [ "$matched_num" = '1' ]; then
-        local container=$(docker ps -aqf "name=$1" | head -1)
-        docker start -a "$container"
-    else
-        echo "Which container do you wanna run?"
-        echo ""
-        docker ps -af "name=$1" | tail -n +2
-    fi
-}
-
-function pk {
-    if [ "$#" != '1' ]; then
-        echo "Usage:"
-        echo "    pk <ID of pwnable.kr>"
-    else
-        curl -sd "user=$1" http://pwnable.kr/lib.php?cmd=finduser | sed -nE 's/.*"(.*)".*/\1/p'
-    fi
-
-}
-
 function remove_known_host {
     [ -n "$1" ] && sed -i '' "$1d" ~/.ssh/known_hosts
-}
-
-function ish {
-    if [ -n "$1" ]; then
-        local ip="$1"
-        shift
-        echo ssh "192.168.1.$ip" "$@"
-        ssh -A -o StrictHostKeyChecking=no "192.168.1.$ip" "$@"
-    fi
 }
 
 function yaml2json {
@@ -203,24 +170,14 @@ if [ `uname` = "Darwin" ]; then
     # alias
     alias ls="ls -HGF"
     alias app="open -a"
-    alias mou="open -a mou"
-    alias gitx="open -a gitx ."
     alias hide="chflags hidden ~/Desktop/*"
     alias show="chflags nohidden ~/Desktop/*"
     alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
-    alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
     alias lsusb="system_profiler SPUSBDataType"
-    alias dm='docker-machine'
-    alias dip='docker-machine ip'
-    alias denv='test -x $(which docker-machine) && eval "$(docker-machine env)"'
-    alias dinit='test -x $(which docker-machine) && docker-machine start && eval "$(docker-machine env)"'
-    alias dssh="ssh -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \$(docker-machine ip)"
     alias lsb_release="system_profiler SPSoftwareDataType"
     alias flush_dns_cache="sudo killall -HUP mDNSResponder"
 
     # ENV variables
-    export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
-    export ANDROID_HOME=/usr/local/Cellar/android-sdk/r20.0.1
     export GOPATH=${HOME}/workspace/go
     export PATH=$PATH:$GOPATH/bin
 
