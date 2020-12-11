@@ -1,3 +1,10 @@
+# Fix SSH agent socket
+if [ -S "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
+    mkdir -p "$HOME/.ssh/"
+    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+fi
+export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
+
 # tmux setup
 [ -t 1 ] && [ -z "$TMUX" ] && [ -z "$VSCODE" ] && [ -f ~/.tmux-auto ] && [ -x ~/bin/tmx ] && ~/bin/tmx
 
@@ -51,13 +58,6 @@ alias dstart="docker start"
 alias sshn="ssh -o StrictHostKeyChecking=no"
 alias vimu="vim -u /dev/null"
 [ -n "$(which hub)" ] && alias git=hub
-
-# Fix SSH agent socket
-if [ -S "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
-    mkdir -p "$HOME/.ssh/"
-    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
-fi
-export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 
 # pyenv
 [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
@@ -182,7 +182,7 @@ if [ `uname` = "Darwin" ]; then
     [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
 
     # gpg-agent for ssh
-    [ -S $HOME/.gnupg/S.gpg-agent.ssh ] && export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+    [ -S $HOME/.gnupg/S.gpg-agent.ssh ] && ln -sf "$HOME/.gnupg/S.gpg-agent.ssh" "$HOME/.ssh/ssh_auth_sock"
 fi
 
 # Linux
