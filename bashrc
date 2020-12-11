@@ -176,6 +176,10 @@ fi
 
 # Linux
 if [ `uname` = "Linux" ]; then
+    # ENV variables
+    export GOPATH=${HOME}/go
+    export PATH=$GOPATH/bin:$PATH
+
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
 fi
