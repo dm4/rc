@@ -163,8 +163,9 @@ if [ `uname` = "Darwin" ]; then
     alias flush_dns_cache="sudo killall -HUP mDNSResponder"
 
     # ENV variables
-    export GOPATH=${HOME}/workspace/go
-    export PATH=$PATH:$GOPATH/bin
+    export GOPATH="$HOME/workspace/go"
+    export GOROOT="$(brew --prefix golang)"
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
     # bash completions
     [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
