@@ -51,31 +51,8 @@ alias dstart="docker start"
 alias nssh="ssh -o StrictHostKeyChecking=no"
 [ -n "$(which hub)" ] && alias git=hub
 
-###
-# Lazy load for some version management tools.
-###
-
-# rvm
-rvm_commands=(irb ruby rvm)
-lazy_load_rvm() {
-    unset -f "${rvm_commands[@]}"
-    [ -s "~/.rvm/scripts/rvm" ] && source "~/.rvm/scripts/rvm"
-}
-for rvm_command in "${rvm_commands[@]}"
-do
-    eval "${rvm_command}() { lazy_load_rvm; ${rvm_command} \"\$@\"; }"
-done
-
 # pyenv
-pyenv_commands=(pip pyenv python)
-lazy_load_pyenv() {
-    unset -f "${pyenv_commands[@]}"
-    [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
-}
-for pyenv_command in "${pyenv_commands[@]}"
-do
-    eval "${pyenv_command}() { lazy_load_pyenv; ${pyenv_command} \"\$@\"; }"
-done
+[ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
 
 # nvm
 nvm_commands=(node npm nvm)
