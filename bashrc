@@ -169,7 +169,6 @@ if [ `uname` = "Darwin" ]; then
 
     # bash completions
     [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
-    [ -f `brew --prefix`/etc/bash_completion.d/vagrant ] && . `brew --prefix`/etc/bash_completion.d/vagrant
 
     # autojump
     [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
