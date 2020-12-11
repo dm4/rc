@@ -1,5 +1,5 @@
 # tmux setup
-[ -t 1 ] && [ -z "$TMUX" ] && [ -f ~/.tmux-auto ] && [ -x ~/bin/tmx ] && ~/bin/tmx
+[ -t 1 ] && [ -z "$TMUX" ] && [ -z "$VSCODE" ] && [ -f ~/.tmux-auto ] && [ -x ~/bin/tmx ] && ~/bin/tmx
 
 # PS1 placeholder for fake speed up!
 [ -t 1 ] && printf '\e[s[~] ➟  '
