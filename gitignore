@@ -1,0 +1,7 @@
+# vim
+*~
+[._]sw[a-p]
+[._]*.sw[a-p]
+
+# macOS
+.DS_Store
