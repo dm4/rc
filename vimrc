@@ -220,6 +220,9 @@ let g:scomment_default_mapping = 0
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
+" vim-go
+let g:go_version_warning = 0
+
 if has("gui_running")
     " set colors
     set background=light
