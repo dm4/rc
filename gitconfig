@@ -15,8 +15,6 @@
     df = !git --no-pager diff --name-only
 [branch]
     autosetuprebase = always
-[push]
-    default = matching
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
