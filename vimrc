@@ -8,6 +8,7 @@ scriptencoding utf-8
 
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
+Plug 'airblade/vim-gitgutter'
 Plug 'c9s/simple-commenter.vim'
 Plug 'dm4/vim-writer'
 Plug 'easymotion/vim-easymotion'
