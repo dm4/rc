@@ -48,7 +48,8 @@ alias drm="docker rm"
 alias drmi="docker rmi"
 alias dstop="docker stop"
 alias dstart="docker start"
-alias nssh="ssh -o StrictHostKeyChecking=no"
+alias sshn="ssh -o StrictHostKeyChecking=no"
+alias vimu="vim -u /dev/null"
 [ -n "$(which hub)" ] && alias git=hub
 
 # pyenv
