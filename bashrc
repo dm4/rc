@@ -149,6 +149,9 @@ export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 
 # for Mac OSX
 if [ `uname` = "Darwin" ]; then
+    # https://support.apple.com/zh-tw/HT208050
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
     # alias
     alias ls="ls -HGF"
     alias app="open -a"
