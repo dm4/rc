@@ -52,6 +52,13 @@ alias sshn="ssh -o StrictHostKeyChecking=no"
 alias vimu="vim -u /dev/null"
 [ -n "$(which hub)" ] && alias git=hub
 
+# Fix SSH agent socket
+if [ -S "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
+    mkdir -p "$HOME/.ssh/"
+    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+fi
+export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
+
 # pyenv
 [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
 
