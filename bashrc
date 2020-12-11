@@ -143,11 +143,11 @@ prompt_command() {
 export PS1="${tmux_title}${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
 export PROMPT_COMMAND=prompt_command
 
-# source
+# fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 
-# for Mac OSX
+# macOS
 if [ `uname` = "Darwin" ]; then
     # https://support.apple.com/zh-tw/HT208050
     export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -173,7 +173,10 @@ if [ `uname` = "Darwin" ]; then
 
     # autojump
     [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
-else
+fi
+
+# Linux
+if [ `uname` = "Linux" ]; then
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
 fi
