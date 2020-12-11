@@ -26,3 +26,5 @@
     diff = diff-highlight | less
 [core]
 	excludesfile = ~/.gitignore
+[gpg]
+    program = gpg2
