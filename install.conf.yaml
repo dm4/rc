@@ -19,5 +19,5 @@
 
 - shell:
   -
-    command: vim +PlugInstall +qall
+    command: vim +PlugInstall! +qall
     stdout: true
