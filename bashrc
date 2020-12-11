@@ -180,6 +180,9 @@ if [ `uname` = "Darwin" ]; then
 
     # autojump
     [ -f `brew --prefix`/etc/autojump.sh ] && . `brew --prefix`/etc/autojump.sh
+
+    # gpg-agent for ssh
+    [ -S $HOME/.gnupg/S.gpg-agent.ssh ] && export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 fi
 
 # Linux
