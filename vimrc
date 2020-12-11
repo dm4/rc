@@ -183,6 +183,9 @@ set background=dark
 "silent! colorscheme solarized
 set t_ut=
 silent! colorscheme jellybeans
+" fix gitgutter background color
+highlight clear SignColumn
+highlight link SignColumn LineNr
 
 " Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
