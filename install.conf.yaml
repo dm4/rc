@@ -10,13 +10,13 @@
     ~/.bashrc:
     ~/.gdbinit:
     ~/.gitconfig:
+    ~/.gitignore:
     ~/.inputrc:
     ~/.tigrc:
     ~/.tmux.conf:
     ~/.vim:
     ~/.vimrc:
     ~/bin:
-    ~/.gitignore:
 
 - shell:
   -
