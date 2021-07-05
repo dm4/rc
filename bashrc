@@ -172,7 +172,7 @@ if [ `uname` = "Darwin" ]; then
 
     # ENV variables
     export GOPATH="$HOME/workspace/go"
-    export GOROOT="$(brew --prefix golang)"
+    export GOROOT="$(brew --prefix golang)/libexec"
     export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
     # bash completions
