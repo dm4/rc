@@ -11,6 +11,7 @@
     ~/.gdbinit:
     ~/.gitconfig:
     ~/.inputrc:
+    ~/.tigrc:
     ~/.tmux.conf:
     ~/.vim:
     ~/.vimrc:

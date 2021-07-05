@@ -1,0 +1,5 @@
+set main-view = \
+    date:custom,local=true,format=%Y-%m-%d \
+    author:abbreviated \
+    id \
+    commit-title:graph=v2,refs=true
