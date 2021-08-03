@@ -11,8 +11,7 @@
     ci = commit
     st = status
     br = branch
-    l  = log --oneline --decorate --graph
-    ll = log --graph --date-order -C -M --pretty=format:'<%h> %ad [%an] %Cgreen%d%Creset %s' --all --date=short
+    l  = log --oneline --graph --no-show-signature
     df = !git --no-pager diff --name-only
 [push]
     default = simple
@@ -28,3 +27,5 @@
     excludesfile = ~/.gitignore
 [gpg]
     program = gpg2
+[log]
+    showSignature = true
