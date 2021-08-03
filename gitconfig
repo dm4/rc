@@ -29,3 +29,5 @@
     program = gpg2
 [log]
     showSignature = true
+[commit]
+    gpgsign = true
