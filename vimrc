@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'nanotech/jellybeans.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomlion/vim-solidity'
@@ -222,6 +223,9 @@ let g:vim_json_syntax_conceal = 0
 
 " vim-go
 let g:go_version_warning = 0
+
+" rust.vim
+let g:rustfmt_autosave = 1
 
 if has("gui_running")
     " set colors
