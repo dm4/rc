@@ -203,6 +203,9 @@ if [ `uname` = "Linux" ]; then
 
     # rust
     [ -f $HOME/.cargo/env ] && . $HOME/.cargo/env
+
+    # numlockx for Keychron bluetooth keyboards
+    [ -n "$(which numlockx)" ] && xhost &>/dev/null && numlockx off
 fi
 
 if [ $TERM = "xterm-256color" ]; then
