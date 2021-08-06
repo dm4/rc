@@ -49,8 +49,9 @@ alias eb="vim ~/.bashrc"
 alias et="vim ~/.tmux.conf"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
-alias dps="docker ps"
-alias dpsa="docker ps -a"
+alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Networks}}\t{{.Status}}\t{{.RunningFor}}"'
+alias dpsa='docker ps -a --format "table {{.Names}}\t{{.ID}}\t{{.Networks}}\t{{.Status}}\t{{.RunningFor}}"'
+alias dpse='docker ps -a --format "table {{.Names}}\t{{.ID}}\t{{.Networks}}\t{{.Status}}\t{{.RunningFor}}" --filter status=exited'
 alias drm="docker rm"
 alias drmi="docker rmi"
 alias dstop="docker stop"
