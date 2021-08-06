@@ -195,6 +195,9 @@ if [ `uname` = "Linux" ]; then
     export GOPATH=${HOME}/go
     export PATH=$GOPATH/bin:$PATH
 
+    # Aliases
+    alias gnome-logout='gnome-session-quit --logout --no-prompt'
+
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
 
