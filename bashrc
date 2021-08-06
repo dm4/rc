@@ -184,6 +184,9 @@ if [ `uname` = "Darwin" ]; then
 
     # gpg-agent for ssh
     [ -S $HOME/.gnupg/S.gpg-agent.ssh ] && ln -sf "$HOME/.gnupg/S.gpg-agent.ssh" "$HOME/.ssh/ssh_auth_sock"
+
+    # rust
+    [ -f $HOME/.cargo/env ] && . $HOME/.cargo/env
 fi
 
 # Linux
@@ -194,6 +197,9 @@ if [ `uname` = "Linux" ]; then
 
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
+
+    # rust
+    [ -f $HOME/.cargo/env ] && . $HOME/.cargo/env
 fi
 
 if [ $TERM = "xterm-256color" ]; then
