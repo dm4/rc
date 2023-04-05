@@ -99,6 +99,7 @@ autocmd FileType json       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType ruby       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType yaml       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType solidity   set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType python     set sw=2 ts=2 softtabstop=2 expandtab
 
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
