@@ -16,6 +16,7 @@
     hub = !open $(hub browse -u)
 [push]
     default = simple
+    autoSetupRemote = true
 [branch]
     autosetuprebase = always
 [pull]
