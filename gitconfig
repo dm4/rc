@@ -13,6 +13,7 @@
     br = branch
     l  = log --oneline --graph --no-show-signature
     df = !git --no-pager diff --name-only
+    hub = !open $(hub browse -u)
 [push]
     default = simple
 [branch]
