@@ -27,6 +27,7 @@
     diff = diff-highlight | less
 [core]
     excludesfile = ~/.gitignore
+    quotePath = false
 [gpg]
     program = gpg2
 [log]
