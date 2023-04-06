@@ -179,7 +179,6 @@ prompt_command() {
     history -a
     history -c
     history -r
-    printf "%${COLUMNS}s\r" "$(date '+%F %T')"
 }
 export PS1="${tmux_title}${git_prompt_color}\$(__git_ps1 '(%s) ')${clear_color}[\w] ${arrow_color}➟  ${clear_color}"
 export PROMPT_COMMAND=prompt_command
