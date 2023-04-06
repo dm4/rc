@@ -205,7 +205,7 @@ if [ `uname` = "Darwin" ]; then
 
     # ENV variables
     export PATH="/opt/homebrew/bin:$PATH"
-    export GOPATH="$HOME/workspace/go"
+    export GOPATH="$HOME/work/go"
     export GOROOT="$(brew --prefix golang)/libexec"
     export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
     export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
