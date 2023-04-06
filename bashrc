@@ -207,7 +207,8 @@ if [ `uname` = "Darwin" ]; then
     # ENV variables
     export GOPATH="$HOME/workspace/go"
     export GOROOT="$(brew --prefix golang)/libexec"
-    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+    export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
     # bash completions
     [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
