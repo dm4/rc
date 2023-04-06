@@ -33,7 +33,7 @@
 [log]
     showSignature = true
 [commit]
-    gpgsign = true
+    gpgsign = false
 [init]
 	defaultBranch = main
 [filter "lfs"]
