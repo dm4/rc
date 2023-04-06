@@ -126,6 +126,27 @@ function yaml2json {
     [ -n "$1" ] && [ -f "$1" ] && python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' < "$1"
 }
 
+function forward_port_local {
+    local host="$1"
+    local port="$2"
+    [ -z "$port" ] && echo "$FUNCNAME <host> <port>" && return
+    [ -z "$host" ] && echo "$FUNCNAME <host> <port>" && return
+    ssh -L "$port:localhost:$port" -N "$host"
+}
+
+function pchome {
+    echo "在 PChome 24 上搜尋 $* ..."
+    curl -s --get \
+        --data-urlencode "q=$*" \
+        --data-urlencode 'sort=sale/dc' \
+        'https://ecshweb.pchome.com.tw/search/v3.3/all/results' \
+        | jq -r '.prods[] | "- $" + (.price | tostring) + "\t" + .name + "\thttps://24h.pchome.com.tw/prod/" + .Id'
+}
+
+function iterm_notify {
+    echo $'\e]9;'"$*"$'\007'
+}
+
 # git-prompt setting
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWDIRTYSTATE=true
