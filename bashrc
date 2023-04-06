@@ -204,11 +204,11 @@ if [ `uname` = "Darwin" ]; then
     alias adapter="ioreg -rw0 -c AppleSmartBattery | grep AdapterDetails | head -n 1 | tr '{,' $'\n' | tr -d '})' | tail -n +2"
 
     # ENV variables
-    export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
-    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
     export PATH="/opt/homebrew/bin:$PATH"
     export GOPATH="$HOME/workspace/go"
     export GOROOT="$(brew --prefix golang)/libexec"
+    export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
     # bash completions
     [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
