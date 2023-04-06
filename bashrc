@@ -65,6 +65,15 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 # pyenv
 [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
 
+# rbenv
+[ -n "$(which rbenv)" ] && eval "$(rbenv init - bash)"
+
+# cargo
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# ghc
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+
 # nvm
 nvm_commands=(node npm nvm)
 lazy_load_nvm() {
@@ -208,9 +217,6 @@ if [ `uname` = "Darwin" ]; then
 
     # gpg-agent for ssh
     [ -S $HOME/.gnupg/S.gpg-agent.ssh ] && ln -sf "$HOME/.gnupg/S.gpg-agent.ssh" "$HOME/.ssh/ssh_auth_sock"
-
-    # rust
-    [ -f $HOME/.cargo/env ] && . $HOME/.cargo/env
 fi
 
 # Linux
@@ -224,9 +230,6 @@ if [ `uname` = "Linux" ]; then
 
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
-
-    # rust
-    [ -f $HOME/.cargo/env ] && . $HOME/.cargo/env
 
     # numlockx for Keychron bluetooth keyboards
     [ -n "$(which numlockx)" ] && xhost &>/dev/null && numlockx off
