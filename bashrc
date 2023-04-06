@@ -58,6 +58,8 @@ alias dstop="docker stop"
 alias dstart="docker start"
 alias sshn="ssh -o StrictHostKeyChecking=no"
 alias vimu="vim -u /dev/null"
+alias list-pipenv='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
+alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 [ -n "$(which hub)" ] && alias git=hub
 
 # pyenv
@@ -170,6 +172,7 @@ if [ `uname` = "Darwin" ]; then
     alias lsusb="system_profiler SPUSBDataType"
     alias lsb_release="system_profiler SPSoftwareDataType"
     alias flush_dns_cache="sudo killall -HUP mDNSResponder"
+    alias adapter="ioreg -rw0 -c AppleSmartBattery | grep AdapterDetails | Head -n 1 | tr '{,' $'\n' | tr -d '}' | tail -n +2"
 
     # ENV variables
     export GOPATH="$HOME/workspace/go"
