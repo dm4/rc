@@ -12,6 +12,7 @@
     ~/.gitconfig:
     ~/.gitignore:
     ~/.inputrc:
+    ~/.mackup.cfg:
     ~/.tigrc:
     ~/.tmux.conf:
     ~/.vim:
