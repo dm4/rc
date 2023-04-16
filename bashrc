@@ -57,6 +57,7 @@ alias drmi="docker rmi"
 alias dstop="docker stop"
 alias dstart="docker start"
 alias sshn="ssh -o StrictHostKeyChecking=no"
+alias vim="nvim"
 alias vimu="vim -u /dev/null"
 alias list-pipenv='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
 alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
