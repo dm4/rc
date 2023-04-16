@@ -12,7 +12,7 @@ export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 [ -t 1 ] && printf '\e[s[~] ➟  '
 
 # Path
-export PATH=".:$HOME/bin:$PATH"
+export PATH=".:$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Editor
 export SVN_EDITOR=vim
