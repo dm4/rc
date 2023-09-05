@@ -188,6 +188,9 @@ export PROMPT_COMMAND=prompt_command
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 
+# dircolors
+[ -f ~/.dircolors ] && eval $(dircolors -b ~/.dircolors)
+
 # macOS
 if [ `uname` = "Darwin" ]; then
     # https://support.apple.com/zh-tw/HT208050
