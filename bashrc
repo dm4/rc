@@ -240,7 +240,7 @@ fi
 if [ `uname` = "Linux" ]; then
     # ENV variables
     export GOPATH=${HOME}/go
-    export PATH=$GOPATH/bin:$PATH
+    export PATH=$GOPATH/bin:$PATH:/usr/local/go/bin
 
     # Aliases
     alias gnome-logout='gnome-session-quit --logout --no-prompt'
