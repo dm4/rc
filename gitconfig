@@ -27,8 +27,6 @@
 [core]
     excludesfile = ~/.gitignore
     quotePath = false
-[gpg]
-    program = gpg2
 [log]
     showSignature = true
 [commit]
