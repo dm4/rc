@@ -76,6 +76,9 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 # ghc
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
+# .bashrc.local
+[ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
+
 # nvm
 nvm_commands=(node npm nvm)
 lazy_load_nvm() {
