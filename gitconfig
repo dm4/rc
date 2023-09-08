@@ -13,6 +13,7 @@
     br = branch
     l  = log --oneline --graph --no-show-signature
     df = !git --no-pager diff --name-only
+    hub = !git remote -v | sed 's/git@github.com:/github.com\\//' | sed 's/(fetch)//' | sed 's/(push)//' | uniq
 [push]
     default = simple
     autoSetupRemote = true
