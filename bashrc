@@ -226,6 +226,13 @@ if [ `uname` = "Darwin" ]; then
 
     # gpg-agent for ssh
     [ -S $HOME/.gnupg/S.gpg-agent.ssh ] && ln -sf "$HOME/.gnupg/S.gpg-agent.ssh" "$HOME/.ssh/ssh_auth_sock"
+
+    # chruby
+    [ -f `brew --prefix`/opt/chruby/share/chruby/chruby.sh ] && . `brew --prefix`/opt/chruby/share/chruby/chruby.sh
+    [ -f `brew --prefix`/opt/chruby/share/chruby/auto.sh ] && . `brew --prefix`/opt/chruby/share/chruby/auto.sh
+
+    # iTerm
+    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
 # Linux
