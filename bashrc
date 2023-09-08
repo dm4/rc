@@ -47,6 +47,7 @@ alias gs="git status"
 alias ev="vim ~/.vimrc"
 alias eb="vim ~/.bashrc"
 alias et="vim ~/.tmux.conf"
+alias en="vim ~/.config/nvim"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Networks}}\t{{.Status}}\t{{.RunningFor}}"'
@@ -189,7 +190,7 @@ export PROMPT_COMMAND=prompt_command
 export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 
 # dircolors
-[ -f ~/.dircolors ] && eval $(dircolors -b ~/.dircolors)
+[ -f ~/.dircolors ] && [ -n "$(which dircolors)" ] && eval $(dircolors -b ~/.dircolors)
 
 # macOS
 if [ `uname` = "Darwin" ]; then
