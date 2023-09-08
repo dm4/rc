@@ -8,6 +8,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.number = true
 vim.keymap.set("n", ";", ":")
+vim.keymap.set("n", "<Leader>l", "<Cmd>set nu!<CR>", { desc = "Toggle line number" })
 
 -- init lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -25,4 +26,4 @@ vim.opt.rtp:prepend(lazypath)
 
 -- setup lazy.nvim
 require("lazy").setup("plugins")
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>")
+vim.keymap.set("n", "<Leader>L", "<Cmd>Lazy<CR>", { desc = "Open Lazy dashboard" })
