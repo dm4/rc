@@ -11,6 +11,10 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<Leader>l", "<Cmd>set nu!<CR>", { desc = "Toggle line number" })
+vim.keymap.set("n", "<C-N>", "gt", { desc = "Next tab" })
+vim.keymap.set("n", "<C-P>", "gT", { desc = "Previous tab" })
+vim.keymap.set("n", "<C-J>", "<Cmd>:m +1<CR>", { desc = "Move line down" })
+vim.keymap.set("n", "<C-K>", "<Cmd>:m -2<CR>", { desc = "Move line up" })
 
 -- init lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
