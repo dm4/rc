@@ -9,6 +9,7 @@ vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.undofile = true
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<Leader>l", "<Cmd>set nu!<CR>", { desc = "Toggle line number" })
 vim.keymap.set("n", "<C-N>", "gt", { desc = "Next tab" })
