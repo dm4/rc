@@ -1,7 +1,5 @@
 return {
     'numToStr/Comment.nvim',
-    opts = {
-        -- add any options here
-    },
+    opts = {}, -- [dm4] keep this
     lazy = false,
 }

@@ -1,9 +1,11 @@
 return {
-  "bluz71/vim-moonfly-colors",
-  name = "moonfly",
+  "metalelf0/jellybeans-nvim",
   lazy = false,
   priority = 1000,
+  dependencies = {
+    "rktjmp/lush.nvim",
+  },
   config = function()
-    vim.cmd.colorscheme("moonfly")
+    vim.cmd.colorscheme("jellybeans-nvim")
   end,
 }
