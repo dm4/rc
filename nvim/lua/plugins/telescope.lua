@@ -7,6 +7,13 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   },
   config = function()
+    require('telescope').setup({
+      pickers = {
+        find_files = {
+          find_command = {'rg', '--files', '--hidden', '-g', '!.git/**'},
+        }
+      }
+    })
     require("telescope").load_extension("fzf")
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = "Telescope find files" })
