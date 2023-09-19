@@ -158,10 +158,6 @@ function pchome {
         | jq -r '.prods[] | "- $" + (.price | tostring) + "\t" + .name + "\thttps://24h.pchome.com.tw/prod/" + .Id'
 }
 
-function iterm_notify {
-    echo $'\e]9;'"$*"$'\007'
-}
-
 # git-prompt setting
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWDIRTYSTATE=true
@@ -231,9 +227,6 @@ if [ `uname` = "Darwin" ]; then
     # chruby
     [ -f `brew --prefix`/opt/chruby/share/chruby/chruby.sh ] && . `brew --prefix`/opt/chruby/share/chruby/chruby.sh
     [ -f `brew --prefix`/opt/chruby/share/chruby/auto.sh ] && . `brew --prefix`/opt/chruby/share/chruby/auto.sh
-
-    # iTerm
-    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
 # Linux
