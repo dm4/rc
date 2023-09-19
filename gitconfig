@@ -8,7 +8,7 @@
     a  = add
     b  = branch -a
     co = checkout
-    ci = commit
+    cs = commit -s
     st = status
     br = branch
     l  = log --oneline --graph --no-show-signature
