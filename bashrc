@@ -73,6 +73,7 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
 
 # rbenv
+[ -d "$HOME/.rbenv/bin" ] && export PATH="$HOME/.rbenv/bin:$PATH"
 [ -n "$(which rbenv)" ] && eval "$(rbenv init - bash)"
 
 # cargo
