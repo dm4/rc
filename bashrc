@@ -26,7 +26,7 @@ export HISTTIMEFORMAT='%F %T '
 
 # GitHub cli (gh)
 # Suppress warning message when opening browser
-export GH_BROWSER="bash -c :"
+export GH_BROWSER="iterm-open-url.sh"
 
 # Aliases
 alias rm="rm -i"
