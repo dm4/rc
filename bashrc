@@ -24,6 +24,10 @@ export HISTFILESIZE=${HISTSIZE}
 export HISTSIZE=10000
 export HISTTIMEFORMAT='%F %T '
 
+# GitHub cli (gh)
+# Suppress warning message when opening browser
+export GH_BROWSER="echo >/dev/null"
+
 # Aliases
 alias rm="rm -i"
 alias cp="cp -i"
