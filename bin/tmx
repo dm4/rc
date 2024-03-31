@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH=/opt/homebrew/bin:$PATH
+PATH=/opt/homebrew/bin:$HOME/.local/bin:$PATH
 [ -n "$TMUX" ] && exit
 exist_session=`tmux ls 2> /dev/null | awk -F: '{print $1}'`
 number_of_session=`tmux ls 2> /dev/null | wc -l | awk '{print $1}'`
