@@ -10,9 +10,11 @@ vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.undofile = true
+vim.opt.wrap = false
 vim.opt.mouse = ""
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<Leader>l", "<Cmd>set nu!<CR>", { desc = "Toggle line number" })
+vim.keymap.set("n", "<Leader>w", "<Cmd>set wrap!<CR>", { desc = "Toggle line wrapping" })
 vim.keymap.set("n", "<C-N>", "gt", { desc = "Next tab" })
 vim.keymap.set("n", "<C-P>", "gT", { desc = "Previous tab" })
 vim.keymap.set("n", "<C-J>", "<Cmd>:m +1<CR>", { desc = "Move line down" })
