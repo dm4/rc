@@ -243,6 +243,9 @@ if [ `uname` = "Linux" ]; then
     # Aliases
     alias gnome-logout='gnome-session-quit --logout --no-prompt'
 
+    # bash completions
+    [ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+
     # aotujump
     [ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
 
