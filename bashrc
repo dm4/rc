@@ -25,7 +25,6 @@ export HISTSIZE=10000
 export HISTTIMEFORMAT='%F %T '
 
 # GitHub cli (gh)
-# Suppress warning message when opening browser
 export GH_BROWSER="iterm-open-url.sh"
 
 # Aliases

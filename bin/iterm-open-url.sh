@@ -9,4 +9,4 @@ url="$1"
 [[ $url != http* ]] && url="https://$url"
 base64_url=$(echo -n "$url" | base64)
 
-printf "\ePtmux;\e\e\e]1337;OpenURL=:%s==\x07\e\\\\" $base64_url
+printf "\ePtmux;\e\e\e]1337;OpenURL=:%s\x07\e\\\\" $base64_url
