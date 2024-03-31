@@ -12,6 +12,7 @@
     st = status
     br = branch
     l  = log --oneline --graph --no-show-signature
+    cl = log --pretty=format:'- %s' --no-show-signature master..
     df = !git --no-pager diff --name-only
     hub = !git remote -v | sed 's/git@github.com:/github.com\\//' | sed 's/(fetch)//' | sed 's/(push)//' | uniq
 [push]
