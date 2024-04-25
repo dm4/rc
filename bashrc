@@ -86,6 +86,9 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 # foundry
 [ -d "$HOME/.foundry/bin" ] && export PATH="$HOME/.foundry/bin:$PATH"
 
+# wasmedge
+[ -f "$HOME/.wasmedge/env" ] && source "$HOME/.wasmedge/env"
+
 # .bashrc.local
 [ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 
