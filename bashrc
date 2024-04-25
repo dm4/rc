@@ -215,7 +215,7 @@ if [ `uname` = "Darwin" ]; then
     alias lsusb="system_profiler SPUSBDataType"
     alias lsb_release="system_profiler SPSoftwareDataType"
     alias flush_dns_cache="sudo killall -HUP mDNSResponder"
-    alias adapter="ioreg -rw0 -c AppleSmartBattery | grep AdapterDetails | head -n 1 | tr '{,' $'\n' | tr -d '})' | tail -n +2"
+    alias adapter="ioreg -rw0 -c AppleSmartBattery | grep AppleRawAdapterDetails | cut -d'=' -f2- | tr '()=' '[]:' | sed 's/No/false/g' | jq"
 
     # ENV variables
     export PATH="/opt/homebrew/bin:$PATH"
