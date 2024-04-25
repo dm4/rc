@@ -83,6 +83,9 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 # ghc
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
+# foundry
+[ -d "$HOME/.foundry/bin" ] && export PATH="$HOME/.foundry/bin:$PATH"
+
 # .bashrc.local
 [ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 
