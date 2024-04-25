@@ -14,7 +14,8 @@ if [ $number_of_session = "0" ]; then
 else
     if [ -z "$1" ]; then
         if [ "$number_of_session" = "1" ]; then
-            tmux attach
+            is_attached=$(tmux ls 2> /dev/null | grep attached)
+            [ -z "$is_attached" ] && tmux attach
             exit
         fi
         echo "Which seesion to attach?"
