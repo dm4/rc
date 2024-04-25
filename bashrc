@@ -68,7 +68,6 @@ alias vim="nvim"
 alias vimu="vim -u /dev/null"
 alias list-pipenv='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
 alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
-[ -n "$(which hub)" ] && alias git=hub
 
 # pyenv
 [ -n "$(which pyenv)" ] && eval "$(pyenv init -)"
