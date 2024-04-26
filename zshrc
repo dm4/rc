@@ -13,6 +13,9 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 plugins=(fzf gh)
 source $ZSH/oh-my-zsh.sh
 
+# p10k settings.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # History timestamp.
 HIST_STAMPS="%m/%d %H:%M:%S"
 
@@ -22,6 +25,3 @@ bindkey "\C-n" history-beginning-search-forward
 
 # Common settings between bash and zsh.
 [ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
-
-# p10k settings.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
