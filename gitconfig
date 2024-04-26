@@ -15,6 +15,7 @@
     cl = log --pretty=format:'- %s' --no-show-signature master..
     df = !git --no-pager diff --name-only
     hub = !git remote -v | sed 's/git@github.com:/github.com\\//' | sed 's/(fetch)//' | sed 's/(push)//' | uniq
+    pl = pull --prune
 [push]
     default = simple
     autoSetupRemote = true
