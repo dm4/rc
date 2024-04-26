@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+HIST_STAMPS="%m/%d %H:%M:%S"
 
 # OMZ plugins.
 plugins=(fzf gh)
@@ -15,9 +16,6 @@ source $ZSH/oh-my-zsh.sh
 
 # p10k settings.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# History timestamp.
-HIST_STAMPS="%m/%d %H:%M:%S"
 
 # Zsh not follow .inputrc, use zle settings.
 bindkey "\C-p" history-beginning-search-backward
