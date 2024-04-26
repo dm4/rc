@@ -24,9 +24,9 @@
 [pull]
     rebase = true
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    log = diff-highlight | less -F
+    show = diff-highlight | less -F
+    diff = diff-highlight | less -F
 [core]
     excludesfile = ~/.gitignore
     quotePath = false
