@@ -11,7 +11,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 HIST_STAMPS="%m/%d %H:%M:%S"
 
 # OMZ plugins.
-plugins=(fzf gh)
+plugins=(fzf gh zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # p10k settings.
