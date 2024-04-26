@@ -66,7 +66,8 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 [ -f ~/.dircolors ] && command -v gdircolors &>/dev/null && eval $(gdircolors -b ~/.dircolors)
 
 # eza
-command -v eza &>/dev/null && alias ls="eza --icons --color --git"
+EZA_TIME_STYLE=$'%Y  %m-%d\n%H:%M %m-%d'
+command -v eza &>/dev/null && alias ls="eza --icons --color --git --group-directories-first --time-style='+${EZA_TIME_STYLE}'"
 
 # pyenv
 command -v pyenv &>/dev/null && eval "$(pyenv init -)"
