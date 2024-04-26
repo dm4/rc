@@ -20,6 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # Zsh not follow .inputrc, use zle settings.
 bindkey "\C-p" history-beginning-search-backward
 bindkey "\C-n" history-beginning-search-forward
+bindkey "\C-u" backward-kill-line
 
 # FZF settings.
 export FZF_COMPLETION_TRIGGER='\\'
