@@ -45,6 +45,7 @@ alias eb="vim ~/.bashrc"
 alias ebl="vim ~/.bashrc.local"
 alias et="vim ~/.tmux.conf"
 alias en="vim ~/.config/nvim"
+alias ez="vim ~/.zshrc"
 alias p="perl -e 'print \$_, \"\\n\" for split /:/, \$ENV{PATH}'"
 alias svndi="svn di | colordiff"
 alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Networks}}\t{{.Status}}\t{{.RunningFor}}"'
