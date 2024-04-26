@@ -19,6 +19,9 @@
     ~/.vimrc:
     ~/bin:
     ~/.config/nvim: nvim
+    ~/.zshrc:
+    ~/.zprofile:
+    ~/.p10k.zsh:
 
 - shell:
   -
