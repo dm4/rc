@@ -21,5 +21,9 @@ source $ZSH/oh-my-zsh.sh
 bindkey "\C-p" history-beginning-search-backward
 bindkey "\C-n" history-beginning-search-forward
 
+# FZF settings.
+export FZF_COMPLETION_TRIGGER='\\'
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
+
 # Common settings between bash and zsh.
 [ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
