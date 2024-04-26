@@ -24,6 +24,14 @@
     ~/.p10k.zsh:
 
 - shell:
-  -
-    command: vim +PlugInstall! +qall
+  - command: |
+      [[ ! -d "$HOME/.oh-my-zsh" ]] && \
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+        mv -f $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
+    stdout: true
+  - command: |
+      [[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]] && \
+        git clone https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+    stdout: true
+  - command: vim +PlugInstall! +qall
     stdout: true
