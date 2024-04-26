@@ -13,9 +13,6 @@ export HISTTIMEFORMAT='%F %T '
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 
-# dircolors
-[ -f ~/.dircolors ] && [ -n "$(which dircolors)" ] && eval $(dircolors -b ~/.dircolors)
-
 # rbenv
 [ -d "$HOME/.rbenv/bin" ] && export PATH="$HOME/.rbenv/bin:$PATH"
 [ -n "$(which rbenv)" ] && eval "$(rbenv init - bash)"

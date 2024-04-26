@@ -60,6 +60,13 @@ alias vimu="vim -u /dev/null"
 alias list-pipenv='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
 alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 
+# dircolors
+[ -f ~/.dircolors ] && command -v dircolors &>/dev/null && eval $(dircolors -b ~/.dircolors)
+[ -f ~/.dircolors ] && command -v gdircolors &>/dev/null && eval $(gdircolors -b ~/.dircolors)
+
+# eza
+command -v eza &>/dev/null && alias ls="eza --icons --color --git"
+
 # pyenv
 command -v pyenv &>/dev/null && eval "$(pyenv init -)"
 
@@ -128,7 +135,6 @@ if [ `uname` = "Darwin" ]; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
 
     # alias
-    alias ls="ls -HGF"
     alias app="open -a"
     alias hide="chflags hidden ~/Desktop/*"
     alias show="chflags nohidden ~/Desktop/*"
