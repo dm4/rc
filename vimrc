@@ -17,7 +17,6 @@ Plug 'ericpruitt/tmux.vim', {'rtp': 'vim'}
 Plug 'fatih/vim-go'
 Plug 'honza/vim-snippets'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'nanotech/jellybeans.vim'

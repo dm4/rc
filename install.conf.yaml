@@ -25,6 +25,11 @@
 
 - shell:
   - command: |
+      [[ ! -d "$HOME/.fzf" ]] && \
+        git clone https://github.com/junegunn/fzf.git $HOME/.fzf && \
+        $HOME/.fzf/install --all --no-update-rc || \
+        echo "fzf already installed"
+  - command: |
       [[ ! -d "$HOME/.oh-my-zsh" ]] && \
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
         mv -f $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc || \
