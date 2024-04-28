@@ -23,19 +23,25 @@ bindkey "\C-n" history-beginning-search-forward
 bindkey "\C-u" backward-kill-line
 
 # FZF settings.
-FZF_PREVIEW="[ -d {} ] && eza --tree --color=always {} | head -100 || head -100 {}"
 export FZF_COMPLETION_TRIGGER=',,'
-export FZF_DEFAULT_COMMAND="fd --hidden --follow"
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --marker="✓" --info=inline-right'
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=marker:046,bg+:000"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview '$FZF_PREVIEW'"
-_fzf_compgen_path() {
-  fd --hidden --follow "$1"
-}
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow "$1"
-}
+if command -v eza &> /dev/null
+then
+  FZF_PREVIEW="[ -d {} ] && eza --tree --color=always --icons=always {} | head -100 || head -100 {}"
+  export FZF_CTRL_T_OPTS="--preview '$FZF_PREVIEW'"
+fi
+if command -v fd &> /dev/null
+then
+  export FZF_DEFAULT_COMMAND="fd --hidden --follow"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  _fzf_compgen_path() {
+    fd --hidden --follow "$1"
+  }
+  _fzf_compgen_dir() {
+    fd --type d --hidden --follow "$1"
+  }
+fi
 
 # Common settings between bash and zsh.
 [ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
