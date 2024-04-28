@@ -36,12 +36,12 @@ then
 fi
 if command -v fd &> /dev/null
 then
-  export FZF_DEFAULT_COMMAND="fd --hidden --follow"
+  export FZF_DEFAULT_COMMAND="fd --hidden --exclude .git --follow"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   _fzf_compgen_path() {
-    fd --hidden --follow "$1"
+    fd --hidden --exclude .git --follow "$1"
   }
   _fzf_compgen_dir() {
-    fd --type d --hidden --follow "$1"
+    fd --type d --hidden --exclude .git --follow "$1"
   }
 fi
