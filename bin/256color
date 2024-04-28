@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for i in {0..255}; do
+    # Set background color
+    printf "\e[48;5;%dm  \e[0m" $i
+    # Set foreground color
+    printf "\e[38;5;%dm%03d\e[0m " $i $i
+    
+    # New line every 6 colors
+    if [[ $(( (i - 3) % 6 )) -eq 0 ]]; then
+        printf "\n"
+    fi
+done
+
