@@ -22,6 +22,9 @@ bindkey "\C-p" history-beginning-search-backward
 bindkey "\C-n" history-beginning-search-forward
 bindkey "\C-u" backward-kill-line
 
+# Common settings between bash and zsh.
+[ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
+
 # FZF settings.
 export FZF_COMPLETION_TRIGGER=',,'
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --marker="✓" --info=inline-right'
@@ -42,6 +45,3 @@ then
     fd --type d --hidden --follow "$1"
   }
 fi
-
-# Common settings between bash and zsh.
-[ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
