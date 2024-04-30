@@ -126,11 +126,20 @@ function forward_port_local {
 
 function pchome {
     echo "在 PChome 24 上搜尋 $* ..."
+    local tempfile=$(mktemp)
     curl -s --get \
         --data-urlencode "q=$*" \
         --data-urlencode 'sort=sale/dc' \
-        'https://ecshweb.pchome.com.tw/search/v3.3/all/results' \
-        | jq -r '.prods[] | "- $" + (.price | tostring) + "\t" + .name + "\thttps://24h.pchome.com.tw/prod/" + .Id'
+        'https://ecshweb.pchome.com.tw/search/v3.3/all/results' > "$tempfile"
+    jq -r '.prods[] | "$" + (.price | tostring) + "\t" + .name +
+        ":::" + "https://24h.pchome.com.tw/prod/" + .Id +
+        ":::" + "https://cs-e.ecimg.tw" + .picB' "$tempfile" \
+        | awk '{split($0,a,":::")} {printf "%s\x1b[38;5;0m:::%s:::%s\x1b[m\n", a[1], a[2], a[3]}' \
+        | fzf --ansi --multi \
+            --preview 'echo {} | awk "{split(\$0,a,\"':::'\")} {print a[3]}" | xargs curl -s {} | imgcat --height $FZF_PREVIEW_LINES' \
+        | awk '{split($0,a,":::")} {print a[2]}' \
+        | xargs -I {} iterm-open-url.sh {}
+    rm -f "$tempfile"
 }
 
 # Colorful man page
@@ -195,3 +204,5 @@ if [ `uname` = "Linux" ]; then
     # numlockx for Keychron bluetooth keyboards
     command -v numlockx &>/dev/null && xhost &>/dev/null && numlockx off
 fi
+
+# vim: filetype=sh
