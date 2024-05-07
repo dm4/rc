@@ -53,3 +53,5 @@ _fzf_complete_j() {
 _fzf_complete_j_post() {
   awk '{printf "\"%s\"", $0}'
 }
+
+# vim: ts=2 sw=2 et
