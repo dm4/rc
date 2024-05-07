@@ -45,3 +45,11 @@ then
     fd --type d --hidden --exclude .git --follow "$1"
   }
 fi
+_fzf_complete_j() {
+    _fzf_complete --prompt="autojump> " -- "$@" < <(
+    j -s | awk -F $'\t' '/^___/{exit} {print $2}' | tac
+  )
+}
+_fzf_complete_j_post() {
+  awk '{printf "\"%s\"", $0}'
+}
