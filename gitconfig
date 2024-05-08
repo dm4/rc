@@ -27,6 +27,7 @@
     log = diff-highlight | less -F
     show = diff-highlight | less -F
     diff = diff-highlight | less -F
+    branch = less -F
 [core]
     excludesfile = ~/.gitignore
     quotePath = false
