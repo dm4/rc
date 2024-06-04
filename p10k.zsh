@@ -133,10 +133,12 @@
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
   # When in detached HEAD state, show @commit where branch normally goes.
   typeset -g POWERLEVEL9K_VCS_COMMIT_ICON='@'
-  # Don't show staged, unstaged, untracked indicators.
+  # Don't show staged, untracked indicators.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED}_ICON=
-  # Show '*' when there are staged, unstaged or untracked files.
-  typeset -g POWERLEVEL9K_VCS_DIRTY_ICON='*'
+  # Show '*' when there are unstaged.
+  typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON='*'
+  # Don't show anything when there are staged, unstaged or untracked files.
+  typeset -g POWERLEVEL9K_VCS_DIRTY_ICON=
   # Show '⇣' if local branch is behind remote.
   typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':↓'
   # Show '⇡' if local branch is ahead of remote.
