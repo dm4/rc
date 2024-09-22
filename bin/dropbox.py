@@ -4,7 +4,7 @@
 #
 # dropbox
 # Dropbox frontend script
-# This file is part of nautilus-dropbox 2020.03.04.
+# This file is part of nautilus-dropbox 2024.04.17.
 #
 # nautilus-dropbox is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -195,7 +195,7 @@ def verify_signature(key_file, sig_file, plain_file):
 
 def download_file_chunk(url, buf):
     opener = urllib.request.build_opener()
-    opener.addheaders = [('User-Agent', "DropboxLinuxDownloader/2020.03.04")]
+    opener.addheaders = [('User-Agent', "DropboxLinuxDownloader/2024.04.17")]
 
     with closing(opener.open(url)) as f:
         size = int(f.info()['content-length'])
@@ -294,13 +294,11 @@ if GUI_AVAILABLE:
         import gi
         gi.require_version('Gdk', '3.0')
         gi.require_version('Gtk', '3.0')
-        from gi.repository import GObject
+        from gi.repository import GLib
         from gi.repository import Gdk
         from gi.repository import Gtk
         from gi.repository import Pango
         import webbrowser
-
-        GObject.threads_init()
 
         load_serialized_images()
 
@@ -331,21 +329,20 @@ if GUI_AVAILABLE:
                             ret = ()
                         if not isinstance(ret, tuple):
                             ret = (ret,)
-                        GObject.idle_add(self.loop_callback, *ret)
+                        GLib.idle_add(self.loop_callback, *ret)
 
                         if self._stopped:
                             _thread.exit()
                 except Exception as e:
                     print(e)
                     if self.on_exception is not None:
-                        GObject.idle_add(self.on_exception, e)
+                        GLib.idle_add(self.on_exception, e)
                 else:
                     if self.on_done is not None:
-                        GObject.idle_add(self.on_done)
+                        GLib.idle_add(self.on_done)
 
             def start(self, *args, **kwargs):
-                t = threading.Thread(target=self._run, args=args, kwargs=kwargs)
-                t.setDaemon(True)
+                t = threading.Thread(target=self._run, args=args, kwargs=kwargs, daemon=True)
                 t.start()
 
             def stop(self):
@@ -450,12 +447,12 @@ if GUI_AVAILABLE:
                 self.user_cancelled = False
                 self.task = None
 
-                self.ok = ok = Gtk.Button(stock=Gtk.STOCK_OK)
+                self.ok = ok = Gtk.Button.new_with_mnemonic("_OK")
                 ok.connect('clicked', self.handle_ok)
                 self.action_area.add(ok)
                 ok.show()
 
-                cancel = Gtk.Button(stock=Gtk.STOCK_CANCEL)
+                cancel = Gtk.Button.new_with_mnemonic("_Cancel")
                 cancel.connect('clicked', self.handle_cancel)
                 self.action_area.add(cancel)
                 cancel.show()
@@ -611,7 +608,7 @@ class CommandTicker(threading.Thread):
         first = True
         while True:
             self.stop_event.wait(0.25)
-            if self.stop_event.isSet(): break
+            if self.stop_event.is_set(): break
             if i == len(ticks):
                 first = False
                 i = 0
@@ -663,9 +660,11 @@ class DropboxCommand(object):
 
         self.f.flush()
 
-        # Start a ticker
-        ticker_thread = CommandTicker()
-        ticker_thread.start()
+        ticker_thread = None
+        if sys.stderr.isatty():
+            # Start a ticker
+            ticker_thread = CommandTicker()
+            ticker_thread.start()
 
         # This is the potentially long-running call.
         try:
@@ -673,9 +672,10 @@ class DropboxCommand(object):
         except KeyboardInterrupt:
             raise DropboxCommand.BadConnectionError("Keyboard interruption detected")
         finally:
-            # Tell the ticker to stop.
-            ticker_thread.stop()
-            ticker_thread.join()
+            if ticker_thread is not None:
+                # Tell the ticker to stop.
+                ticker_thread.stop()
+                ticker_thread.join()
 
         if ok:
             toret = {}
@@ -753,7 +753,7 @@ def start_dropbox():
 
         # Fix indicator icon and menu on Unity environments. (LP: #1559249)
         # Fix indicator icon and menu in Budgie environment. (LP: #1683051)
-        new_env = os.environ.copy()        
+        new_env = os.environ.copy()
         current_env = os.environ.get("XDG_CURRENT_DESKTOP", '').split(":")
         to_check = ['Unity', 'Budgie']
         if any(word in to_check for word in current_env):
@@ -936,7 +936,11 @@ options:
                         init, cleanup = "\x1b[36;1m", "\x1b[0m"
                     elif status == "unsyncable":
                         init, cleanup = "\x1b[41;1m", "\x1b[0m"
-                    elif status == "selsync":
+                    elif status in ("selective sync", "ignored"):
+                        # https://help.dropbox.com/files-folders/restore-delete/ignored-files
+                        # gray-bar on local ignored files
+                        # formerly ignored files were local files under selsync paths
+                        # Accept "selective sync", in addition to "ignored" - for compatibility to < v94 of dropbox
                         init, cleanup = "\x1b[37;1m", "\x1b[0m"
                     else:
                         init, cleanup = '', ''
@@ -1019,6 +1023,8 @@ options:
                     try:
                         status = dc.icon_overlay_file_status(path=fp).get('status', ['unknown'])[0]
                         console_print("%-*s %s" % (indent, file+':', status))
+                    except DropboxCommand.BadConnectionError:
+                        console_print("Dropbox isn't responding!")
                     except DropboxCommand.CommandError as e:
                         console_print("%-*s %s" % (indent, file+':', e))
     except DropboxCommand.CouldntConnectError:
@@ -1033,31 +1039,6 @@ dropbox ls [FILE]...
 This is an alias for filestatus -l
     """
     return filestatus(["-l"] + args)
-
-@command
-@requires_dropbox_running
-def puburl(args):
-    """get public url of a file in your Dropbox's public folder
-dropbox puburl FILE
-
-Prints out a public url for FILE (which must be in your public folder).
-    """
-    if len(args) != 1:
-        console_print(puburl.__doc__,linebreak=False)
-        return
-
-    try:
-        with closing(DropboxCommand()) as dc:
-            try:
-                console_print(dc.get_public_link(path=os.path.abspath(args[0])).get('link', ['No Link'])[0])
-            except DropboxCommand.CommandError as e:
-                console_print("Couldn't get public url: " + str(e))
-            except DropboxCommand.BadConnectionError:
-                console_print("Dropbox isn't responding!")
-            except DropboxCommand.EOFError:
-                console_print("Dropbox daemon stopped.")
-    except DropboxCommand.CouldntConnectError:
-        console_print("Dropbox isn't running!")
 
 @command
 @requires_dropbox_running
@@ -1313,7 +1294,10 @@ options:
         console_print(lansync.__doc__,linebreak=False)
     else:
         with closing(DropboxCommand()) as dc:
-            dc.set_lan_sync(lansync='enabled' if should_lansync else 'disabled')
+            try:
+                dc.set_lan_sync(lansync='enabled' if should_lansync else 'disabled')
+            except DropboxCommand.BadConnectionError:
+                console_print("Dropbox isn't responding!")
 
 
 @command
@@ -1530,7 +1514,7 @@ it's installed, and the Dropbox command-line interface.
         pass
 
     console_print("Dropbox daemon version: %s" % dropbox_daemon_version)
-    console_print("Dropbox command-line interface version: 2020.03.04")
+    console_print("Dropbox command-line interface version: 2024.04.17")
 
 @command
 def help(argv):
