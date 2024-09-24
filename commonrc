@@ -19,7 +19,7 @@ export SVN_EDITOR=vim
 export EDITOR=vim
 
 # GitHub cli (gh)
-export GH_BROWSER="iterm-open-url.sh"
+export GH_BROWSER="wezterm-open-url.sh"
 
 # Aliases
 alias rm="rm -i"

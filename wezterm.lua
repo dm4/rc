@@ -50,6 +50,16 @@ wezterm.on(
   end
 )
 
+-- User variables
+wezterm.on(
+  'user-var-changed',
+  function(window, pane, name, value)
+    if name == 'open-url' then
+      wezterm.run_child_process { 'open', value }
+    end
+  end
+)
+
 -- Window
 config.window_decorations = 'RESIZE'
 config.window_padding = {
