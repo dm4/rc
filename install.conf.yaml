@@ -46,5 +46,10 @@
         git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" || \
         echo "zsh-autosuggestions already installed"
     stdout: true
+  - command: |
+      [[ ! -d "$HOME/.tmux/plugins/tpm" ]] && \
+        git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm" || \
+        echo "tpm already installed"
+    stdout: true
   - command: vim +PlugInstall! +qall
     stdout: true
