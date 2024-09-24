@@ -64,6 +64,29 @@ wezterm.on("gui-startup", function()
   window:gui_window():maximize()
 end)
 
+-- Keys
+config.keys = {
+  {
+    key = 'p',
+    mods = 'CTRL|CMD',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = { 'ssh', 'pn51' },
+    },
+  },
+  {
+    key = 'n',
+    mods = 'CTRL|CMD',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = { 'ssh', 'n2' },
+    },
+  },
+  {
+    key = 'w',
+    mods = 'CMD',
+    action = wezterm.action.CloseCurrentTab { confirm = false },
+  },
+}
+
 return config
 
 -- vim: ft=lua sw=2 ts=2 et
