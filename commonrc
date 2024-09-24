@@ -5,6 +5,9 @@ if [ -S "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; th
 fi
 export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 
+# Terminal tab title
+printf '\e]1;'$(hostname)'\e\\'
+
 # tmux setup
 [ -t 1 ] && [ -z "$TMUX" ] && [ -z "$VSCODE" ] && [ -f ~/.tmux-auto ] && [ -x ~/bin/tmx ] && ~/bin/tmx
 
