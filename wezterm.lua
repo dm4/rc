@@ -76,6 +76,7 @@ end)
 
 -- Keys
 config.keys = {
+  -- Quick ssh
   {
     key = 'p',
     mods = 'CTRL|CMD',
@@ -90,11 +91,15 @@ config.keys = {
       args = { 'ssh', 'n2' },
     },
   },
+  -- Close tab without confirmation
   {
     key = 'w',
     mods = 'CMD',
     action = wezterm.action.CloseCurrentTab { confirm = false },
   },
+  -- Move tabs
+  { key = '{', mods = 'CMD|ALT', action = wezterm.action.MoveTabRelative(-1) },
+  { key = '}', mods = 'CMD|ALT', action = wezterm.action.MoveTabRelative(1) },
 }
 
 return config
