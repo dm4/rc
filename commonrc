@@ -166,6 +166,14 @@ function list-pipenv {
     fi
 }
 
+function set_terminal_title {
+    if [[ -z "${TMUX-}" ]] ; then
+        printf "\e]1;%s\e\\" "$1"
+    else
+        printf "\ePtmux;\e\e]1;%s\e\\" "$1"
+    fi
+}
+
 # Colorful man page
 if [ $TERM = "xterm-256color" ]; then
     export PAGER="`which less` -s"
