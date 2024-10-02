@@ -65,7 +65,6 @@ alias dstart="docker start"
 alias sshn="ssh -o StrictHostKeyChecking=no"
 alias vim="nvim"
 alias vimu="vim -u /dev/null"
-alias list-pipenv='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
 alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 alias xx="chmod +x"
 
@@ -146,6 +145,25 @@ function pchome {
         | awk '{split($0,a,":::")} {print a[2]}' \
         | xargs -I {} iterm-open-url.sh {}
     rm -f "$tempfile"
+}
+
+function list-pipenv {
+    local rm_commands=""
+    for venv in ~/.local/share/virtualenvs/*
+    do
+        local project=$(cat "$venv/.project")
+        local venvname=$(basename "$venv")
+        local status=' '
+        [[ ! -d "$project" ]] && status='!'
+        echo "$status $venvname -> $project"
+        [ "$status" = '!' ] && rm_commands="$rm_commands""rm -rf $venv"$'\n'
+    done
+    if [ -n "$rm_commands" ]
+    then
+        echo
+        echo 'Remove unused project?'
+        echo "$rm_commands"
+    fi
 }
 
 # Colorful man page
