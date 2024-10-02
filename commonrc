@@ -151,12 +151,12 @@ function list-pipenv {
     local rm_commands=""
     for venv in ~/.local/share/virtualenvs/*
     do
-        local project=$(cat "$venv/.project")
+        local venvproject=$(cat "$venv/.project")
         local venvname=$(basename "$venv")
-        local status=' '
-        [[ ! -d "$project" ]] && status='!'
-        echo "$status $venvname -> $project"
-        [ "$status" = '!' ] && rm_commands="$rm_commands""rm -rf $venv"$'\n'
+        local venvstatus=' '
+        [[ ! -d "$venvproject" ]] && venvstatus='!'
+        echo "$venvstatus $venvname -> $venvproject"
+        [ "$venvstatus" = '!' ] && rm_commands="$rm_commands""rm -rf $venv"$'\n'
     done
     if [ -n "$rm_commands" ]
     then
