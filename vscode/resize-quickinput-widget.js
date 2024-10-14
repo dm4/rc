@@ -33,7 +33,7 @@
 
 var menuExist = false;
 var quickInputListNode = null;
-var factor = 1;
+var factor = -1;
 var refresh = false;
 var cachedHeight = -1;
 var cachedPreOneTop = 0;
@@ -116,7 +116,7 @@ function resize() {
     refresh = false;
     if (rows && rows.length > 0) {
         var defaultHeight = parseInt(rows[0].style.height, 10);
-        if (defaultHeight != cachedHeight) {
+        if (factor < 0 && defaultHeight != cachedHeight) {
             factor = (defaultHeight + 10) / defaultHeight;
             cachedHeight = defaultHeight;
             refresh = true;
@@ -140,8 +140,7 @@ function resize() {
         if (moving && parseInt(row.style.top, 10) < cachedPreOneTop) {
             set(
                 row,
-                cachedPreOneTop +
-                    Math.floor(parseInt(row.style.height, 10) * factor),
+                cachedPreOneTop + Math.floor(parseInt(row.style.height, 10) * factor),
                 "top",
                 "cachedTop"
             );
