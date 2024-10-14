@@ -36,7 +36,7 @@ var quickInputListNode = null;
 var factor = 1;
 var refresh = false;
 var cachedHeight = -1;
-var cachadPreOneTop = 0;
+var cachedPreOneTop = 0;
 const padding = 10; // up + bottom
 
 // Init static style
@@ -45,6 +45,10 @@ var styles = `
   .quick-input-widget {
     box-shadow: 0 5px 10px rgba(0,0,0,0), 0 0 0 100vw rgba(0,0,0,0.15) !important;
     top: 80px !important;
+    // width: 50% !important;
+    // margin-left: 0 !important;
+    // left: 25% !important;
+    // overflow-x: auto !important;
   }
   .quick-input-widget .monaco-inputbox {
     padding: 10px !important;
@@ -75,6 +79,9 @@ var styles = `
   .quick-input-widget .quick-input-list .quick-input-list-label-meta .monaco-highlighted-label:before {
     content: ' ▸ ';
   }
+  .quick-input-widget .quick-input-list .quick-input-list-entry .monaco-action-bar.animated.quick-input-list-entry-action-bar {
+    height: unset;
+  }
 `;
 styleElement.textContent = styles;
 document.head.appendChild(styleElement);
@@ -93,6 +100,12 @@ function set(obj, v, primaryKey, cacheKey) {
     obj.style[primaryKey] = obj[cacheKey] + "px";
 }
 
+function setPaddingBottom(obj, v) {
+    if (parseInt(obj.style.paddingBottom, 10) != v) {
+        obj.style["paddingBottom"] = v + "px";
+    }
+}
+
 function resize() {
     const monacoListRows =
         quickInputListNode.querySelector(".monaco-list-rows");
@@ -108,7 +121,11 @@ function resize() {
             cachedHeight = defaultHeight;
             refresh = true;
         }
-        cachadPreOneTop = parseInt(rows[0].style.top, 10);
+        cachedPreOneTop = parseInt(rows[0].style.top, 10);
+        setPaddingBottom(quickInputListNode, 5);
+    } else {
+        setPaddingBottom(quickInputListNode, 0);
+        return;
     }
 
     zoom(quickInputListNode, "maxHeight", "cachedMaxHeight");
@@ -120,16 +137,16 @@ function resize() {
         // [[Patch]]
         // Fix a bug that some rows are not moving, so
         // I force-set their top based on the previous one.
-        if (moving && parseInt(row.style.top, 10) < cachadPreOneTop) {
+        if (moving && parseInt(row.style.top, 10) < cachedPreOneTop) {
             set(
                 row,
-                cachadPreOneTop +
+                cachedPreOneTop +
                     Math.floor(parseInt(row.style.height, 10) * factor),
                 "top",
                 "cachedTop"
             );
         }
-        cachadPreOneTop = parseInt(row.style.top, 10);
+        cachedPreOneTop = parseInt(row.style.top, 10);
     });
 
     const scrollbar = quickInputListNode.querySelector(".scrollbar.vertical");
@@ -155,11 +172,7 @@ const observer = new MutationObserver((mutationsList) => {
                 menuExist = true;
                 resize();
                 const maxHeightObserver = new MutationObserver(
-                    (mutationsList) => {
-                        for (const mutation of mutationsList) {
-                            resize();
-                        }
-                    }
+                    mutationsList => resize()
                 );
                 maxHeightObserver.observe(quickInputListNode, {
                     attributes: true,
