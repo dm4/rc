@@ -23,6 +23,10 @@ bindkey "\C-p" history-beginning-search-backward
 bindkey "\C-n" history-beginning-search-forward
 bindkey "\C-u" backward-kill-line
 
+# Other zsh settings.
+HISTSIZE=999999
+SAVEHIST=$HISTSIZE
+
 # Common settings between bash and zsh.
 [ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
 
