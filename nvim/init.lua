@@ -20,6 +20,13 @@ vim.keymap.set("n", "<C-P>", "gT", { desc = "Previous tab" })
 vim.keymap.set("n", "<C-J>", "<Cmd>:m +1<CR>", { desc = "Move line down" })
 vim.keymap.set("n", "<C-K>", "<Cmd>:m -2<CR>", { desc = "Move line up" })
 
+vim.api.nvim_create_autocmd({'BufWinEnter'}, {
+  desc = 'save last cursor position',
+  pattern = '*',
+  command = 'silent! normal! g`"zv',
+})
+
+
 -- init lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

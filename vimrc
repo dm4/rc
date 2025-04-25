@@ -102,14 +102,6 @@ autocmd FileType solidity   set sw=2 ts=2 softtabstop=2 expandtab
 " Show diff when git commit
 autocmd FileType gitcommit DiffGitCached
 
-" Save last postion
-if has("autocmd")
-   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \   exe "normal g'\"" |
-      \ endif
-endif
-
 " key mapping
 let mapleader=","
 nmap ; :
