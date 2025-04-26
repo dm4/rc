@@ -183,6 +183,44 @@ function branch_merged {
     git branch -D "$merged_branch"
 }
 
+
+function gpt-git-message {
+    local gitdiff=$(git diff --staged)
+
+    if [ -z "$gitdiff" ]; then
+        echo "No changes to commit."
+        return 1
+    fi
+
+    if ! command -v sgpt &>/dev/null; then
+        echo "sgpt command not found."
+        return 1
+    fi
+
+    local gitlog=$(git log --oneline --no-decorate --format="%s" | head)
+    local prompt=$(cat <<< "generate one-line git commit message following the previous git log format.
+
+# previous git log (one commit each line)
+
+\`\`\`
+$gitlog
+\`\`\`
+
+# current git diff
+
+\`\`\`
+$gitdiff
+\`\`\`
+")
+    sgpt -c "$prompt"
+}
+
+function gpt-git-commit {
+    gpt-git-message || return $?
+    local message=$(gpt-git-message)
+    git commit -m "$message" -e "$@"
+}
+
 # Colorful man page
 if [ $TERM = "xterm-256color" ]; then
     export PAGER="`which less` -s"
