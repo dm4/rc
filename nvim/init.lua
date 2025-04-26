@@ -1,5 +1,6 @@
 -- dm4's config
 vim.g.mapleader = ","
+vim.g.is_bash = 1
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.tabstop = 4
