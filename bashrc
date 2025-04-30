@@ -1,5 +1,5 @@
 # PS1 placeholder for fake speed up!
-[ -t 1 ] && printf '\e[s[~] ➟  '
+[[ $- == *i* ]] && printf '\e[s[~] ➟  '
 
 [ -f "$HOME/.rc/commonrc" ] && source "$HOME/.rc/commonrc"
 
@@ -92,4 +92,4 @@ if [ `uname` = "Linux" ]; then
 fi
 
 # Clear placeholder
-[ -t 1 ] && printf '\e[2K\e[u'
+[[ $- == *i* ]] && printf '\e[2K\e[u'
