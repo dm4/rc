@@ -1,9 +1,11 @@
-# Fix SSH agent socket
-if [ -S "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
-    mkdir -p "$HOME/.ssh/"
-    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+# Fix SSH agent socket (skip VSCode)
+if [[ "$SSH_AUTH_SOCK" != *"vscode-ssh-auth-sock"* ]]; then
+    if [ -S "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
+        mkdir -p "$HOME/.ssh/"
+        ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+    fi
+    export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 fi
-export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 
 # Terminal tab title
 printf '\e]1;'$(hostname)'\e\\'
