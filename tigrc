@@ -3,3 +3,5 @@ set main-view = \
     author:abbreviated \
     id \
     commit-title:graph=v2,refs=true
+set refresh-mode = periodic
+set refresh-interval = 5
