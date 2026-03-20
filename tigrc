@@ -3,5 +3,9 @@ set main-view = \
     author:abbreviated \
     id \
     commit-title:graph=v2,refs=true
+
 set refresh-mode = periodic
 set refresh-interval = 5
+
+bind generic <Ctrl-f> move-page-down
+bind generic <Ctrl-b> move-page-up
