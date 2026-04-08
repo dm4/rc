@@ -23,6 +23,10 @@ export EDITOR=vim
 # GitHub cli (gh)
 export GH_BROWSER="wezterm-open-url.sh"
 
+# Claude Code
+export CLAUDE_CODE_NO_FLICKER=1
+export CLAUDE_CODE_DISABLE_MOUSE=1
+
 # Aliases
 alias rm="rm -i"
 alias cp="cp -i"
