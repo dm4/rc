@@ -23,6 +23,7 @@
     ~/.zprofile:
     ~/.p10k.zsh:
     ~/.wezterm.lua:
+    ~/.config/herdr/config.toml: herdr/config.toml
 
 - shell:
   - command: |

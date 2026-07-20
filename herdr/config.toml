@@ -1,0 +1,24 @@
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui.toast]
+delivery = "herdr"
+
+[keys]
+prefix = "ctrl+o"
+open_notification_target = ["prefix+o"]
+new_tab = ["prefix+c", "prefix+ctrl+c"]
+new_workspace = ["prefix+shift+c"]
+
+previous_tab = ["prefix+p", "prefix+ctrl+p", "shift+left"]
+next_tab = ["prefix+n", "prefix+ctrl+n", "shift+right"]
+previous_workspace = ["shift+up"]
+next_workspace = ["shift+down"]
+previous_agent = ["prefix+up", "alt+up"]
+next_agent = ["prefix+down", "alt+down"]
+
+#focus_pane_up = ["prefix+k", "alt+up"]
+#focus_pane_down = ["prefix+j", "alt+down"]
+#focus_pane_left = ["prefix+h", "alt+left"]
+#focus_pane_right = ["prefix+l", "alt+right"]
