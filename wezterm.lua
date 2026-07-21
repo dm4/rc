@@ -90,9 +90,12 @@ config.keys = {
   {
     key = 'p',
     mods = 'CTRL|CMD',
-    action = wezterm.action.SpawnCommandInNewTab {
-      args = { 'ssh', 'pn51' },
-    },
+    action = wezterm.action_callback(function(window, pane)
+      local tab, _, _ = window:mux_window():spawn_tab({
+        args = { '/Users/dm4/.local/bin/herdr', '--remote', 'pn51' },
+      })
+      tab:set_title('pn51')
+    end),
   },
   {
     key = 'n',
