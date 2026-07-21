@@ -81,6 +81,7 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 alias xx="chmod +x"
 alias sgpt="sgpt --temperature 1"
 alias ovs="overmind start"
+alias wt="cd-git-worktree"
 
 # dircolors / gdircolors (brew install coreutils)
 [ -f ~/.dircolors ] && command -v dircolors &>/dev/null && eval $(dircolors -b ~/.dircolors)
@@ -243,6 +244,19 @@ function gpt-git-commit {
     gpt-git-message || return $?
     local message=$(gpt-git-message)
     git commit -m "$message" -e "$@"
+}
+
+function cd-git-worktree() {
+    local wts dir
+    wts=$(git worktree list --porcelain 2>/dev/null | awk '/^worktree /{print substr($0, 10)}')
+    if [ -z "$wts" ]; then
+        echo "Not in a git repository" >&2
+        return 1
+    elif [ $(wc -l <<< "$wts") -le 1 ]; then
+        echo "No other worktrees in this repo" >&2
+        return 1
+    fi
+    dir=$(fzf --select-1 --query="$*" --height=40% <<< "$wts") && cd "$dir"
 }
 
 # Colorful man page
