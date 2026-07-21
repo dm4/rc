@@ -26,6 +26,7 @@ export GH_BROWSER="wezterm-open-url.sh"
 # Claude Code
 export CLAUDE_CODE_NO_FLICKER=1
 export CLAUDE_CODE_DISABLE_MOUSE=1
+export CLAUDE_CODE_EFFORT_LEVEL=max
 
 # Aliases
 alias rm="rm -i"
