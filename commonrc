@@ -187,6 +187,11 @@ function set_terminal_title {
     fi
 }
 
+function set_terminal_title_tmux {
+    local tmux_session=$(tmux display-message -p '#S')
+    set_terminal_title "$tmux_session"
+}
+
 function branch_merged {
     local merged_branch=$(git branch --show-current)
     [ -z "$merged_branch" ] && echo "$0: Fail to get current branch." && return 1
