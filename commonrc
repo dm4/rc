@@ -156,7 +156,7 @@ function pchome {
         | fzf --ansi --multi \
             --preview 'echo {} | awk "{split(\$0,a,\"':::'\")} {print a[3]}" | xargs curl -s {} | imgcat --height $FZF_PREVIEW_LINES' \
         | awk '{split($0,a,":::")} {print a[2]}' \
-        | xargs -I {} iterm-open-url.sh {}
+        | xargs -I {} wezterm-open-url.sh {}
     rm -f "$tempfile"
 }
 
