@@ -5,5 +5,10 @@ vim/backup/
 vim/plugged/
 vim/undo/
 
+# bin
+bin/kitten
+bin/overmind
+bin/lazydocker
+
 # secrets
 secrets/
