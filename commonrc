@@ -76,7 +76,7 @@ alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 alias xx="chmod +x"
 alias ovs="overmind start"
 
-# dircolors
+# dircolors / gdircolors (brew install coreutils)
 [ -f ~/.dircolors ] && command -v dircolors &>/dev/null && eval $(dircolors -b ~/.dircolors)
 [ -f ~/.dircolors ] && command -v gdircolors &>/dev/null && eval $(gdircolors -b ~/.dircolors)
 
