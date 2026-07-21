@@ -1,4 +1,9 @@
 .*.sw[a-z]
+
+# vim
 vim/backup/
 vim/plugged/
 vim/undo/
+
+# secrets
+secrets/

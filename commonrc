@@ -97,6 +97,11 @@ command -v pyenv &>/dev/null && eval "$(pyenv init -)"
 EZA_TIME_STYLE=$'%Y  %m-%d\n%H:%M %m-%d'
 command -v eza &>/dev/null && alias ls="eza --icons --color --git --group-directories-first --time-style='+${EZA_TIME_STYLE}'"
 
+# secrets
+for f in ~/.rc/secrets/*.env; do
+  [ -f "$f" ] && source "$f"
+done
+
 # Functions
 function len { echo ${#1}; }
 function mkcd { mkdir -p "$@" && cd "$@"; }
