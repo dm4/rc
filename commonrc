@@ -261,6 +261,7 @@ if [ `uname` = "Darwin" ]; then
 
     # alias
     alias app="open -a"
+    alias oo="open ."
     alias hide="chflags hidden ~/Desktop/*"
     alias show="chflags nohidden ~/Desktop/*"
     alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
