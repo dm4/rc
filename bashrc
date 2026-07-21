@@ -21,20 +21,6 @@ export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 # .bashrc.local
 [ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 
-# nvm
-nvm_commands=(node npm nvm)
-lazy_load_nvm() {
-    unset -f "${nvm_commands[@]}"
-    export NVM_DIR="$HOME/.nvm"
-    local nvm_sh_path="$NVM_DIR/nvm.sh"
-    [ "$(uname)" = Darwin ] && nvm_sh_path=/usr/local/opt/nvm/nvm.sh
-    [ -s "$nvm_sh_path" ] && source "$nvm_sh_path"
-}
-for nvm_command in "${nvm_commands[@]}"
-do
-    eval "${nvm_command}() { lazy_load_nvm; ${nvm_command} \"\$@\"; }"
-done
-
 # Functions
 
 function v {
