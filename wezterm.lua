@@ -25,6 +25,16 @@ function get_max_cols(window)
   local cols = tab:get_size().cols
   return cols
 end
+-- Get the title of the tab
+--   * If the tab title is explicitly set, take that
+--   * Otherwise, use the title from the active pane in that tab
+function tab_title(tab_info)
+  local title = tab_info.tab_title
+  if title and #title > 0 then
+    return title
+  end
+  return tab_info.active_pane.title
+end
 wezterm.on(
   'window-config-reloaded',
   function(window)
@@ -40,7 +50,7 @@ wezterm.on(
 wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
-    local title = tab.active_pane.title
+    local title = tab_title(tab)
     local full_title = '[' .. tab.tab_index + 1 .. '] ' .. title
     local pad_length = (wezterm.GLOBAL.cols // #tabs - #full_title) // 2
     if pad_length * 2 + #full_title > max_width then
