@@ -1,5 +1,5 @@
 # PS1 placeholder for fake speed up!
-[ -n "SWIFTBAR" ] && return
+[ -n "$SWIFTBAR" ] && return
 [[ $- == *i* ]] && printf '\e[s[~] ➟  '
 
 [ -f "$HOME/.rc/commonrc" ] && source "$HOME/.rc/commonrc"
