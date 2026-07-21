@@ -74,6 +74,7 @@ alias vim="nvim"
 alias vimu="vim -u /dev/null"
 alias psgrep="ps aux | grep -vE '(ps|grep)' | grep -i"
 alias xx="chmod +x"
+alias sgpt="sgpt --temperature 1"
 alias ovs="overmind start"
 
 # dircolors / gdircolors (brew install coreutils)
@@ -230,7 +231,7 @@ $gitlog
 $gitdiff
 \`\`\`
 ")
-    sgpt -c "$prompt"
+    sgpt --temperature 1 -c "$prompt"
 }
 
 function gpt-git-commit {
