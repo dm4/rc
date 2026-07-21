@@ -5,3 +5,8 @@
 
 # macOS
 .DS_Store
+
+# overmind
+Procfile
+
+**/.claude/settings.local.json
