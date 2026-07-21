@@ -4,11 +4,12 @@ local config = wezterm.config_builder()
 -- Update
 config.check_for_updates = true
 
--- Fonts, colors, and styles
+-- Fonts, colors, styles and graphics
 config.font = wezterm.font('SauceCodePro Nerd Font', {weight = 'Light'})
 config.font_size = 20
 config.color_scheme = 'Seti UI (base16)'
 config.underline_position = '200%'
+config.enable_kitty_graphics = true
 
 -- Tab bar
 config.tab_bar_at_bottom = true
