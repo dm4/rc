@@ -98,6 +98,13 @@ config.keys = {
     end),
   },
   {
+    key = 'l',
+    mods = 'CTRL|CMD',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = { 'ssh', 'dm4' },
+    },
+  },
+  {
     key = 'n',
     mods = 'CTRL|CMD',
     action = wezterm.action.SpawnCommandInNewTab {
