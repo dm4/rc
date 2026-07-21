@@ -287,6 +287,9 @@ if [ `uname` = "Darwin" ]; then
     # chruby
     [ -f `brew --prefix`/opt/chruby/share/chruby/chruby.sh ] && . `brew --prefix`/opt/chruby/share/chruby/chruby.sh
     [ -f `brew --prefix`/opt/chruby/share/chruby/auto.sh ] && . `brew --prefix`/opt/chruby/share/chruby/auto.sh
+
+    # eval mole completion if mole is installed
+    command -v mole &>/dev/null && eval "$(mole completion bash)"
 fi
 
 # Linux
