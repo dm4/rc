@@ -96,14 +96,17 @@ command -v pyenv &>/dev/null && eval "$(pyenv init -)"
 # ghc
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
-# foundry
-[ -d "$HOME/.foundry/bin" ] && export PATH="$HOME/.foundry/bin:$PATH"
-
 # wasmedge
 [ -f "$HOME/.wasmedge/env" ] && source "$HOME/.wasmedge/env"
 
+# foundry
+[ -d "$HOME/.foundry/bin" ] && export PATH="$HOME/.foundry/bin:$PATH"
+
 # pnpm
 [ -d "$HOME/.local/share/pnpm" ] && export PATH="$HOME/.local/share/pnpm:$PATH"
+
+# opencode
+[ -d "$HOME/.opencode/bin" ] && export PATH="$HOME/.opencode/bin:$PATH"
 
 # eza
 EZA_TIME_STYLE=$'%Y  %m-%d\n%H:%M %m-%d'
