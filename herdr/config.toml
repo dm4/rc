@@ -34,3 +34,9 @@ next_agent = ["prefix+down", "alt+down"]
 #focus_pane_down = ["prefix+j", "alt+down"]
 #focus_pane_left = ["prefix+h", "alt+left"]
 #focus_pane_right = ["prefix+l", "alt+right"]
+
+[[keys.command]]
+key = "prefix+m"
+type = "shell"
+command = "herdr pane move $(herdr pane current | jq -r .result.pane.pane_id) --new-workspace"
+description = "move pane to new workspace"
