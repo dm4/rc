@@ -294,6 +294,7 @@ if [ `uname` = "Darwin" ]; then
     alias lsb_release="system_profiler SPSoftwareDataType"
     alias flush_dns_cache="sudo killall -HUP mDNSResponder"
     alias adapter="ioreg -rw0 -c AppleSmartBattery | grep AppleRawAdapterDetails | cut -d'=' -f2- | tr '()=' '[]:' | sed 's/No/false/g' | jq"
+    alias wezterm="/Applications/WezTerm.app/Contents/MacOS/wezterm"
 
     # ENV variables
     export PATH="/opt/homebrew/bin:$PATH"
