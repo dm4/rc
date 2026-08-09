@@ -1,0 +1,102 @@
+#!/usr/bin/env zsh
+
+# Work around WezTerm rejecting the unpadded Base64 payloads emitted by
+# `kitten icat`. This wrapper is for the direct Kitty graphics protocol path;
+# it forces stream transfer without multiplexer passthrough and adds canonical
+# Base64 padding to each graphics APC payload.
+
+emulate -L zsh
+
+for arg in "$@"; do
+  case "$arg" in
+    --hold|--hold=*)
+      print -u2 -- "kicat: --hold is unsupported because its interactive TUI can hang in this WezTerm build"
+      exit 2
+      ;;
+    --transfer-mode|--transfer-mode=*|--passthrough|--passthrough=*)
+      print -u2 -- "kicat: --transfer-mode and --passthrough are managed by this wrapper"
+      exit 2
+      ;;
+  esac
+done
+
+command kitten icat \
+  --transfer-mode=stream \
+  --passthrough=none \
+  "$@" |
+  python3 -c '
+import sys
+
+START = b"\x1b_G"
+END = b"\x1b\\"
+BASE64_ALPHABET = frozenset(
+    b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+)
+
+source = sys.stdin.buffer
+destination = sys.stdout.buffer
+buffer = bytearray()
+
+
+def write_frame(frame):
+    body_end = len(frame) - len(END)
+    body = frame[len(START):body_end]
+    separator = body.find(b";")
+
+    if separator >= 0:
+        payload = body[separator + 1:]
+        core = payload.rstrip(b"=")
+
+        if (
+            b"=" not in core
+            and len(core) % 4 != 1
+            and all(byte in BASE64_ALPHABET for byte in core)
+        ):
+            payload = core + b"=" * ((-len(core)) % 4)
+            frame = START + body[:separator + 1] + payload + END
+
+    destination.write(frame)
+
+
+while True:
+    chunk = source.read1(65536)
+    if not chunk:
+        break
+
+    buffer.extend(chunk)
+
+    while True:
+        frame_start = buffer.find(START)
+
+        if frame_start < 0:
+            keep = min(len(buffer), len(START) - 1)
+            if len(buffer) > keep:
+                destination.write(buffer[:-keep])
+                del buffer[:-keep]
+            break
+
+        if frame_start:
+            destination.write(buffer[:frame_start])
+            del buffer[:frame_start]
+
+        frame_end = buffer.find(END, len(START))
+        if frame_end < 0:
+            break
+
+        frame_size = frame_end + len(END)
+        write_frame(bytes(buffer[:frame_size]))
+        del buffer[:frame_size]
+
+    destination.flush()
+
+destination.write(buffer)
+destination.flush()
+'
+
+typeset -a pipeline_status=( "${pipestatus[@]}" )
+
+if (( pipeline_status[1] != 0 )); then
+  exit "${pipeline_status[1]}"
+fi
+
+exit "${pipeline_status[2]}"
