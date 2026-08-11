@@ -11,6 +11,9 @@ kitty_graphics = true
 [ui]
 prompt_new_tab_name = false
 
+[ui.sidebar.spaces]
+rows = [["workspace", "git_status"], ["state_text"]]
+
 [ui.toast]
 delivery = "herdr"
 
