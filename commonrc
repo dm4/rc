@@ -286,7 +286,6 @@ if [ `uname` = "Darwin" ]; then
 
     # alias
     alias app="open -a"
-    alias oo="open ."
     alias hide="chflags hidden ~/Desktop/*"
     alias show="chflags nohidden ~/Desktop/*"
     alias xcode="find . -name '*.xcodeproj' -exec open {} \;"
@@ -295,6 +294,9 @@ if [ `uname` = "Darwin" ]; then
     alias flush_dns_cache="sudo killall -HUP mDNSResponder"
     alias adapter="ioreg -rw0 -c AppleSmartBattery | grep AppleRawAdapterDetails | cut -d'=' -f2- | tr '()=' '[]:' | sed 's/No/false/g' | jq"
     alias wezterm="/Applications/WezTerm.app/Contents/MacOS/wezterm"
+
+    # functions
+    function o() { open "${1:-.}" }
 
     # ENV variables
     export PATH="/opt/homebrew/bin:$PATH"
