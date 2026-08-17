@@ -91,11 +91,9 @@ config.keys = {
   {
     key = 'p',
     mods = 'CTRL|CMD',
-    action = wezterm.action_callback(function(window, pane)
-      local tab, _, _ = window:mux_window():spawn_tab({
-        args = { 'ssh', 'pn51' },
-      })
-      tab:set_title('pn51')
+    action = wezterm.action_callback(function(window, _)
+      local _, pn51_pane = window:mux_window():spawn_tab({})
+      pn51_pane:send_text('pn51\r')
     end),
   },
   {
