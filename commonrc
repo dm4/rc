@@ -296,7 +296,7 @@ if [ `uname` = "Darwin" ]; then
     alias wezterm="/Applications/WezTerm.app/Contents/MacOS/wezterm"
 
     # functions
-    function o() { open "${1:-.}" }
+    function o() { open "${1:-.}"; }
 
     # ENV variables
     export PATH="/opt/homebrew/bin:$PATH"
