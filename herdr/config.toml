@@ -10,6 +10,8 @@ kitty_graphics = true
 
 [ui]
 prompt_new_tab_name = false
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
 
 [ui.sidebar.spaces]
 rows = [["workspace", "git_status"], ["state_text"]]
@@ -22,22 +24,40 @@ position = "bottom-right"
 
 [keys]
 prefix = "ctrl+o"
+toggle_sidebar = "prefix+shift+b"
 open_notification_target = ["prefix+o"]
+
 new_tab = ["prefix+c", "prefix+ctrl+c"]
 new_workspace = ["prefix+shift+c"]
 
 previous_tab = ["prefix+p", "prefix+ctrl+p", "shift+left"]
 next_tab = ["prefix+n", "prefix+ctrl+n", "shift+right"]
-previous_workspace = ["shift+up"]
-next_workspace = ["shift+down"]
-previous_agent = ["prefix+up", "alt+up"]
-next_agent = ["prefix+down", "alt+down"]
 
-#focus_pane_up = ["prefix+k", "alt+up"]
-#focus_pane_down = ["prefix+j", "alt+down"]
-#focus_pane_left = ["prefix+h", "alt+left"]
-#focus_pane_right = ["prefix+l", "alt+right"]
+focus_pane_up = ["prefix+k", "alt+up"]
+focus_pane_down = ["prefix+j", "alt+down"]
+focus_pane_left = ["prefix+h", "alt+left"]
+focus_pane_right = ["prefix+l", "alt+right"]
 
+# Plugins
+[[keys.command]]
+key = "prefix+b"
+type = "plugin_action"
+command = "dm4.workspace-sidebar.toggle-sidebar"
+description = "toggle workspace sidebar"
+
+[[keys.command]]
+key = "shift+down"
+type = "plugin_action"
+command = "dm4.workspace-sidebar.next-tab"
+description = "next tab across workspaces"
+
+[[keys.command]]
+key = "shift+up"
+type = "plugin_action"
+command = "dm4.workspace-sidebar.previous-tab"
+description = "previous tab across workspaces"
+
+# Other shortcuts
 [[keys.command]]
 key = "prefix+m"
 type = "shell"
