@@ -9,6 +9,7 @@ pane_history = true
 kitty_graphics = true
 
 [ui]
+window_title = ""
 prompt_new_tab_name = false
 sidebar_start_collapsed = true
 sidebar_collapsed_mode = "hidden"
@@ -33,8 +34,11 @@ new_workspace = ["prefix+shift+c"]
 previous_tab = ["prefix+p", "prefix+ctrl+p", "shift+left"]
 next_tab = ["prefix+n", "prefix+ctrl+n", "shift+right"]
 
-focus_pane_up = ["prefix+k", "alt+up"]
-focus_pane_down = ["prefix+j", "alt+down"]
+previous_agent = "alt+up"
+next_agent = "alt+down"
+
+focus_pane_up = ["prefix+k"]
+focus_pane_down = ["prefix+j"]
 focus_pane_left = ["prefix+h", "alt+left"]
 focus_pane_right = ["prefix+l", "alt+right"]
 
