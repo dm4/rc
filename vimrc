@@ -95,6 +95,7 @@ autocmd FileType eruby      set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType html       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType javascript set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType json       set sw=2 ts=2 softtabstop=2 expandtab
+autocmd FileType lua        set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType ruby       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType yaml       set sw=2 ts=2 softtabstop=2 expandtab
 autocmd FileType solidity   set sw=2 ts=2 softtabstop=2 expandtab

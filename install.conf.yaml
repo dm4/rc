@@ -24,6 +24,7 @@
     ~/.p10k.zsh:
     ~/.wezterm.lua:
     ~/.config/herdr/config.toml: herdr/config.toml
+    ~/.hammerspoon:
 
 - shell:
   - command: |
