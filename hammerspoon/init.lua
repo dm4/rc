@@ -19,8 +19,12 @@ hs.urlevent.bind("test", function(eventName, params)
 end)
 
 
--- Key Binding
-require("key-binding")
+-- Application Shortcuts
+require("application-shortcuts")
+
+
+-- Key Bindings
+require("key-bindings")
 
 
 -- Window Management
