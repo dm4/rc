@@ -25,6 +25,8 @@
     ~/.wezterm.lua:
     ~/.config/herdr/config.toml: herdr/config.toml
     ~/.hammerspoon:
+      path: hammerspoon
+      if: '[ "$(uname)" = "Darwin" ]'
 
 - shell:
   - command: |
