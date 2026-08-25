@@ -67,3 +67,11 @@ key = "prefix+m"
 type = "shell"
 command = "herdr pane move $(herdr pane current | jq -r .result.pane.pane_id) --new-workspace"
 description = "move pane to new workspace"
+
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "\"${SHELL:-sh}\""
+description = "open temporary popup shell"
+width = "80%"
+height = "80%"
