@@ -26,6 +26,7 @@ function get_max_cols(window)
   local cols = tab:get_size().cols
   return cols
 end
+
 -- Get the title of the tab
 --   * If the tab title is explicitly set, take that
 --   * Otherwise, use the title from the active pane in that tab

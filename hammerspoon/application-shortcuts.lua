@@ -47,7 +47,6 @@ local function parseShortcut(shortcut)
   return modifiers, key
 end
 
-
 local function toggleApplication(applicationName)
   local application = hs.application.find(applicationName, true, true)
 
@@ -58,7 +57,6 @@ local function toggleApplication(applicationName)
 
   hs.application.open(applicationName)
 end
-
 
 for shortcut, applicationName in pairs(applicationShortcuts) do
   local modifiers, key = parseShortcut(shortcut)

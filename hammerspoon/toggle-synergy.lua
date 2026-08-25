@@ -23,7 +23,6 @@ local function findMenuItem(element, title, depth)
   return nil
 end
 
-
 local function getSynergyApplicationElement()
   -- synergy-tray is started by synergy-service as a background helper, so find
   -- its PID directly and use Accessibility to access it.
@@ -35,7 +34,6 @@ local function getSynergyApplicationElement()
 
   return hs.axuielement.applicationElementForPID(pid), true
 end
-
 
 local function pressSynergyAction(menuBarItem, attemptsRemaining)
   local action = findMenuItem(menuBarItem, "Start", 4)
@@ -65,7 +63,6 @@ local function pressSynergyAction(menuBarItem, attemptsRemaining)
     pressSynergyAction(menuBarItem, attemptsRemaining - 1)
   end)
 end
-
 
 local function toggleSynergy()
   if synergyToggleInProgress then
@@ -101,6 +98,5 @@ local function toggleSynergy()
 
   pressSynergyAction(menuBarItem, 10)
 end
-
 
 return toggleSynergy
