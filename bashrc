@@ -18,6 +18,9 @@ export FZF_DEFAULT_OPTS='--height 30% --reverse --border'
 [ -d "$HOME/.rbenv/bin" ] && export PATH="$HOME/.rbenv/bin:$PATH"
 [ -n "$(which rbenv)" ] && eval "$(rbenv init - bash)"
 
+# zoxide
+command -v zoxide &> /dev/null && eval "$(zoxide init bash --cmd j)"
+
 # .bashrc.local
 [ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 

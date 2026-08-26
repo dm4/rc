@@ -30,6 +30,9 @@ SAVEHIST=$HISTSIZE
 # Common settings between bash and zsh.
 [ -f $HOME/.rc/commonrc ] && source $HOME/.rc/commonrc
 
+# Zoxide settings.
+command -v zoxide &> /dev/null && eval "$(zoxide init zsh --cmd j)"
+
 # FZF settings.
 export FZF_COMPLETION_TRIGGER=',,'
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --marker="✓" --info=inline-right'
