@@ -37,10 +37,10 @@ next_tab = ["prefix+n", "prefix+ctrl+n", "shift+right"]
 previous_agent = "alt+up"
 next_agent = "alt+down"
 
-focus_pane_up = ["prefix+k"]
-focus_pane_down = ["prefix+j"]
-focus_pane_left = ["prefix+h", "alt+left"]
-focus_pane_right = ["prefix+l", "alt+right"]
+focus_pane_up = ["prefix+k", "shift+alt+up"]
+focus_pane_down = ["prefix+j", "shift+alt+down"]
+focus_pane_left = ["prefix+h", "shift+alt+left"]
+focus_pane_right = ["prefix+l", "shift+alt+right"]
 
 # Plugins
 [[keys.command]]
